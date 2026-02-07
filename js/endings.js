@@ -136,7 +136,7 @@ const endings = {
             "You'll be lucky if they don't let you go before the internship ends. Maybe tone it down next week?"
         ],
         requirements: {
-            minDislikes: 2
+            minEnemies: 2
         }
     },
     fired_ending: {
@@ -159,18 +159,18 @@ const endings = {
 
 // Calculate which ending the player gets
 function calculateEnding(gameState) {
-    // Count friends (Attempting status or better)
+    // Count friends (10+ relationship score)
     const friendCount = Object.keys(gameState.relationships).filter(charId => {
         const score = gameState.relationships[charId].score;
         const status = getRelationshipStatus(charId, score);
-        return status === 'Attempting' || status === 'Friend';
+        return status === 'Friend';
     }).length;
 
-    // Count dislikes
-    const dislikesCount = Object.keys(gameState.relationships).filter(charId => {
+    // Count enemies (negative relationship score)
+    const enemiesCount = Object.keys(gameState.relationships).filter(charId => {
         const score = gameState.relationships[charId].score;
         const status = getRelationshipStatus(charId, score);
-        return status === 'Dislikes' || status === 'Not Interested';
+        return status === 'Enemy';
     }).length;
 
     // Count core experiences
@@ -195,7 +195,7 @@ function calculateEnding(gameState) {
         if (req.minCoreExperiences !== undefined && coreExpCount < req.minCoreExperiences) continue;
 
         // Check minimum dislikes (for bad endings)
-        if (req.minDislikes !== undefined && dislikesCount < req.minDislikes) continue;
+        if (req.minEnemies !== undefined && enemiesCount < req.minEnemies) continue;
 
         // Check specific core experiences
         if (req.coreExperiences) {
@@ -231,7 +231,7 @@ function calculateEnding(gameState) {
             ending: ending,
             stats: {
                 friendCount,
-                dislikesCount,
+                enemiesCount,
                 coreExpCount,
                 badgesEarned: gameState.badges.length
             }
@@ -243,7 +243,7 @@ function calculateEnding(gameState) {
         ending: endings.average_ending,
         stats: {
             friendCount,
-            dislikesCount,
+            enemiesCount,
             coreExpCount,
             badgesEarned: gameState.badges.length
         }

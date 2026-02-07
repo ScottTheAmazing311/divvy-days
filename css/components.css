@@ -104,22 +104,12 @@
     border-color: #10b981;
 }
 
-.status-attempting {
-    background-color: #f59e0b;
-    border-color: #f59e0b;
-}
-
-.status-talking {
+.status-acquaintance {
     background-color: #6b7280;
     border-color: #6b7280;
 }
 
-.status-not-interested {
-    background-color: #f97316;
-    border-color: #f97316;
-}
-
-.status-dislikes {
+.status-enemy {
     background-color: #ef4444;
     border-color: #ef4444;
 }
@@ -128,19 +118,11 @@
     border-left-color: #10b981;
 }
 
-.relationship-item.status-attempting {
-    border-left-color: #f59e0b;
-}
-
-.relationship-item.status-talking {
+.relationship-item.status-acquaintance {
     border-left-color: #6b7280;
 }
 
-.relationship-item.status-not-interested {
-    border-left-color: #f97316;
-}
-
-.relationship-item.status-dislikes {
+.relationship-item.status-enemy {
     border-left-color: #ef4444;
 }
 

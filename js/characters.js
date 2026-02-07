@@ -16,10 +16,7 @@ const characters = {
         quirk: 'Always drinking energy drinks, explains things like a tutorial',
         slackPreference: 5, // Likes being accessible as your manager
         thresholds: {
-            attempting: 40,
-            talkingStage: 20,
-            notInterested: -20,
-            dislikes: -40
+            friend: 10  // 10+ is Friend, 0-9 is Acquaintance, below 0 is Enemy
         }
     },
     jacob: {
@@ -38,10 +35,7 @@ const characters = {
         quirk: 'Apple enthusiast, always has the latest MacBook',
         slackPreference: 3, // Polite but prefers focus time
         thresholds: {
-            attempting: 40,
-            talkingStage: 20,
-            notInterested: -20,
-            dislikes: -40
+            friend: 10  // 10+ is Friend, 0-9 is Acquaintance, below 0 is Enemy
         }
     },
     chandler: {
@@ -82,10 +76,7 @@ const characters = {
         quirk: 'Always has a twinkle in his eye, pranks Andre constantly',
         slackPreference: 7, // Loves chatting and joking around
         thresholds: {
-            attempting: 40,
-            talkingStage: 20,
-            notInterested: -20,
-            dislikes: -40
+            friend: 10  // 10+ is Friend, 0-9 is Acquaintance, below 0 is Enemy
         }
     },
     colby: {
@@ -126,10 +117,7 @@ const characters = {
         quirk: 'Always welcoming, bridge between you and the friend group',
         slackPreference: 8, // Loves helping and connecting
         thresholds: {
-            attempting: 40,
-            talkingStage: 20,
-            notInterested: -20,
-            dislikes: -40
+            friend: 10  // 10+ is Friend, 0-9 is Acquaintance, below 0 is Enemy
         }
     },
     casper: {
@@ -148,10 +136,7 @@ const characters = {
         quirk: 'Always supportive, Andre\'s close friend',
         slackPreference: 7, // Helpful and supportive
         thresholds: {
-            attempting: 40,
-            talkingStage: 20,
-            notInterested: -20,
-            dislikes: -40
+            friend: 10  // 10+ is Friend, 0-9 is Acquaintance, below 0 is Enemy
         }
     },
     pat: {
@@ -192,10 +177,7 @@ const characters = {
         quirk: 'Always doing something silly - riding chairs, funny voices, dramatic gestures',
         slackPreference: 8, // Loves goofing around and chatting
         thresholds: {
-            attempting: 40,
-            talkingStage: 20,
-            notInterested: -20,
-            dislikes: -40
+            friend: 10  // 10+ is Friend, 0-9 is Acquaintance, below 0 is Enemy
         }
     }
 };
@@ -203,24 +185,20 @@ const characters = {
 // Calculate relationship status based on score
 function getRelationshipStatus(characterId, score) {
     const char = characters[characterId];
-    if (!char) return 'Friend';
+    if (!char) return 'Acquaintance';
 
-    if (score <= char.thresholds.dislikes) return 'Dislikes';
-    if (score <= char.thresholds.notInterested) return 'Not Interested';
-    if (score >= char.thresholds.attempting) return 'Attempting';
-    if (score >= char.thresholds.talkingStage) return 'Talked to';
-    return 'Friend';
+    if (score < 0) return 'Enemy';
+    if (score >= char.thresholds.friend) return 'Friend';
+    return 'Acquaintance';
 }
 
 // Get CSS class for status
 function getStatusClass(status) {
     switch (status) {
         case 'Friend': return 'status-friend';
-        case 'Attempting': return 'status-attempting';
-        case 'Talked to': return 'status-talking';
-        case 'Not Interested': return 'status-not-interested';
-        case 'Dislikes': return 'status-dislikes';
-        default: return 'status-friend';
+        case 'Acquaintance': return 'status-acquaintance';
+        case 'Enemy': return 'status-enemy';
+        default: return 'status-acquaintance';
     }
 }
 
@@ -229,7 +207,7 @@ function isCharacterAvailableForSlack(characterId, gameState) {
     const relationship = gameState.relationships[characterId];
     if (!relationship) return false;
     const status = getRelationshipStatus(characterId, relationship.score);
-    return status !== 'Not Interested' && status !== 'Dislikes';
+    return status !== 'Enemy'; // Can Slack acquaintances and friends
 }
 
 // Get all characters as array

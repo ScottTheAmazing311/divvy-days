@@ -246,7 +246,7 @@ class UIRenderer {
         const friendCount = Object.keys(gameState.relationships).filter(charId => {
             const score = gameState.relationships[charId].score;
             const status = getRelationshipStatus(charId, score);
-            return status === 'Attempting' || status === 'Friend';
+            return status === 'Friend';
         }).length;
         this.friendsCount.textContent = `${friendCount}/5`;
     }

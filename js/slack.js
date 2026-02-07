@@ -248,8 +248,8 @@ function canSlackCharacter(characterId, gameState) {
 
     const status = getRelationshipStatus(characterId, relationship.score);
 
-    // Can't Slack characters who dislike you or are not interested
-    return status !== 'Dislikes' && status !== 'Not Interested';
+    // Can't Slack enemies
+    return status !== 'Enemy';
 }
 
 // Get list of characters available for Slack

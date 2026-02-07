@@ -97,7 +97,7 @@ function getSaveSlotInfo(slotNumber) {
             friendCount: Object.keys(gs.relationships).filter(charId => {
                 const score = gs.relationships[charId].score;
                 const status = getRelationshipStatus(charId, score);
-                return status === 'Attempting' || status === 'Friend';
+                return status === 'Friend';
             }).length
         };
     } catch (e) {

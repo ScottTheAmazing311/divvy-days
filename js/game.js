@@ -11,7 +11,7 @@ class GameEngine {
         const relationships = {};
         Object.keys(characters).forEach(charId => {
             relationships[charId] = {
-                status: 'Friend',
+                status: 'Acquaintance',
                 score: 0
             };
         });
