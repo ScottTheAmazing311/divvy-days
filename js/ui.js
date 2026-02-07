@@ -430,18 +430,9 @@ class UIRenderer {
 
         // Populate modal with character data
         document.getElementById('character-bio-name').textContent = character.name;
-        document.getElementById('character-bio-role').textContent = character.role;
 
-        // Format personality array as a comma-separated string
-        const personalityText = character.personality.join(', ');
-        document.getElementById('character-bio-personality').textContent = personalityText;
-
-        // Format likes array as a comma-separated string
-        const likesText = character.likes.join(', ');
-        document.getElementById('character-bio-likes').textContent = likesText;
-
-        // Show quirk
-        document.getElementById('character-bio-quirk').textContent = character.quirk;
+        // Show the narrative bio
+        document.getElementById('character-bio-text').textContent = character.bio || 'No bio available.';
 
         // Set portrait with character color as background
         const portraitDiv = document.getElementById('character-bio-portrait');
