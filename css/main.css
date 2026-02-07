@@ -17,8 +17,9 @@ body {
 .game-container {
     display: grid;
     grid-template-columns: 250px 1fr 250px;
-    grid-template-rows: 60px auto 1fr max-content;
-    height: 100vh;
+    grid-template-rows: 60px auto minmax(300px, 1fr) auto;
+    min-height: 100vh;
+    max-height: 100vh;
     gap: 0;
 }
 
@@ -48,6 +49,7 @@ body {
     background-color: #1a1a2e;
     position: relative;
     overflow: hidden;
+    min-height: 300px;
 }
 
 .right-sidebar {
@@ -218,6 +220,8 @@ body {
     padding: 15px;
     background-color: #16213e;
     border-top: 1px solid #1a1a2e;
+    overflow: visible;
+    height: auto;
 }
 
 /* ===== TRANSITIONS ===== */
