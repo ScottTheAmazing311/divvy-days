@@ -185,7 +185,7 @@ const day3_4_5_scenarios = {
             {
                 id: "continue_after_drama",
                 text: "Head back to your desk",
-                next: "day3_afternoon_start",
+                next: "day3_scott_encounter",
                 effects: {
                     relationships: { jacob: -3, pat: -3 }
                 }
@@ -209,7 +209,7 @@ const day3_4_5_scenarios = {
             {
                 id: "continue_to_lunch",
                 text: "Check the time - almost lunch",
-                next: "day3_afternoon_start",
+                next: "day3_scott_encounter",
                 effects: {}
             }
         ]
@@ -231,8 +231,52 @@ const day3_4_5_scenarios = {
             {
                 id: "continue_to_lunch",
                 text: "Get back to work until lunch",
-                next: "day3_afternoon_start",
+                next: "day3_scott_encounter",
                 effects: {}
+            }
+        ]
+    },
+
+    // ===== DAY 3: SCOTT ENCOUNTER =====
+    day3_scott_encounter: {
+        day: 3,
+        period: 2,
+        periodName: "Late Morning",
+        background: "office_desk",
+        character: "scott",
+        characterExpression: "happy",
+        text: [
+            "You're heading to the break room when you hear: 'ATTENTION DIVVY EMPLOYEES! THIS IS YOUR SALES ENABLEMENT OVERLORD SPEAKING!'",
+            "Scott is standing on a chair in the middle of the office with a rolled-up paper as a makeshift megaphone. Several people are trying not to laugh.",
+            "'I am here to announce that... THE COFFEE IN THE BREAK ROOM HAS BEEN UPGRADED!' He does a little bow. 'You're welcome for my service.'",
+            "Andre walks by shaking his head but smiling. 'Scott-that's-not-how-announcements-work-we-have-Slack-for-that.'",
+            "'But Andre, where's the DRAMA? Where's the PIZZAZZ?' Scott hops down from the chair and notices you. 'Oh hey! You're the new marketing intern! I'm Scott, Head of Sales Enablement. I make sales not suck.'",
+            "He extends his hand for a very enthusiastic handshake. 'Fair warning: I'm like this all the time. Welcome to the chaos!'"
+        ],
+        choices: [
+            {
+                id: "match_energy",
+                text: "I love the energy! This place is fun",
+                next: "day3_afternoon_start",
+                effects: {
+                    relationships: { scott: 10 }
+                }
+            },
+            {
+                id: "laugh_politely",
+                text: "Haha, nice to meet you Scott",
+                next: "day3_afternoon_start",
+                effects: {
+                    relationships: { scott: 5 }
+                }
+            },
+            {
+                id: "stay_professional",
+                text: "Nice to meet you. I should get back to work",
+                next: "day3_afternoon_start",
+                effects: {
+                    relationships: { scott: 2 }
+                }
             }
         ]
     },
@@ -1433,7 +1477,7 @@ const day3_4_5_scenarios = {
         text: [
             "5:00 PM on Friday. The week is essentially over - people are wrapping up, saving files, shutting down laptops.",
             "Andre walks over with his usual energy drink and a big smile. 'Yo! So Friday tradition time - we're doing the 7-11 walk in like thirty minutes. You coming?'",
-            "Behind him, you see Jesse, Chandler, Colby, Ramona, and a few others gathering.",
+            "Behind him, you see Jesse, Chandler, Ramona, Scott (already making silly announcements about it), and a few others gathering.",
             "'It's-literally-the-most-important-Divvy-tradition,' Andre says, speaking fast with excitement. 'We-walk-to-7-11-get-slurpees-or-snacks-or-whatever-and-just-hang-out. Been-doing-it-since-the-company-was-five-people.'",
             "'You should totally come. For real. It's like... the core Divvy experience.'",
             "This is the moment. The invitation you've been building toward all week."

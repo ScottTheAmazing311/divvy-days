@@ -60,6 +60,17 @@ const slackConversations = {
         relationshipChange: 5
     },
 
+    // Scott conversations
+    scott_1_2: {
+        userMessage: "Hey Scott! What's the sales team up to?",
+        responses: [
+            { sender: 'scott', text: "Oh you know, just CRUSHING IT 💪" },
+            { sender: 'scott', text: "jk we're mostly just drinking coffee and making cold calls" },
+            { sender: 'scott', text: "Want to hear my best sales pitch? 'HEY YOU NEED DIVVY OR YOUR EXPENSES WILL BE SAD' 😂" }
+        ],
+        relationshipChange: 7
+    },
+
     // Woody conversations
     woody_2_1: {
         userMessage: "Hey Woody! How's it going?",

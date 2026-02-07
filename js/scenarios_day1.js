@@ -237,6 +237,8 @@ const day1_scenarios = {
             "Jacob walks you around the office, pointing out people with the precision of someone who's thought about organizational structure.",
             "'So that's Chandler over there with the headphones - he's also a marketing intern under Andre. Sarcastic as hell, super competitive, but good at what he does. He'll talk to you when he wants to, don't take it personally.'",
             "'Jesse in marketing ops - the guy who's currently trying to sneak up behind Andre's desk. He loves pranking people, but he's genuinely great at his job when he's not being ridiculous. Also reports to Andre.'",
+            "Just then, someone rolls by on an office chair going way too fast. 'SALES ENABLEMENT COMING THROUGH!' They crash into a filing cabinet. 'I'm good!'",
+            "Jacob shakes his head with a slight smile. 'That's Scott. Head of Sales Enablement. Reports to Andre but works with the sales team. He's... always like that. You'll get used to it.'",
             "'Colby's in sales - total gym bro energy. You'll probably bump into him occasionally. He's... a lot.'",
             "'Casper's in customer success, super helpful and supportive. Pat's a product designer - hilarious and sarcastic but won't actually be a jerk to you unless you deserve it. Both are friends with Andre.'",
             "'Ramona's in business development - probably the most welcoming person here. You'll like her.'"

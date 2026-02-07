@@ -167,6 +167,27 @@ const characters = {
             notInterested: -15,
             dislikes: -35
         }
+    },
+    scott: {
+        id: 'scott',
+        name: 'Scott',
+        role: 'Head of Sales Enablement (Reports to Andre)',
+        color: '#16a085',
+        portrait: 'assets/characters/scott.png',
+        bio: 'Scott is the Head of Sales Enablement and reports to Andre, though he works mostly with the sales team. Fun-loving and perpetually goofing off, Scott is always doing something ridiculous in the office - whether it\'s riding around on a rolling chair, testing terrible sales pitch ideas out loud, or making overly dramatic announcements. Despite his silliness, he\'s actually great at his job and knows how to make work fun. Part of the friend group, Scott brings levity to any situation and never takes himself too seriously.',
+        personality: ['Fun', 'Goofy', 'Playful', 'Energetic'],
+        communication: 'Enthusiastic and silly, always joking around',
+        values: ['Having fun at work', 'Not taking life too seriously', 'Making people laugh'],
+        social: 'Part of the friend group, reports to Andre, works with sales team',
+        likes: ['Pranks', 'Making people laugh', 'Rolling chairs', 'Silly voices', 'The crew'],
+        dislikes: ['Boring meetings', 'People who are too serious', 'Awkward silence'],
+        quirk: 'Always doing something silly - riding chairs, funny voices, dramatic gestures',
+        thresholds: {
+            attempting: 40,
+            talkingStage: 20,
+            notInterested: -20,
+            dislikes: -40
+        }
     }
 };
 
