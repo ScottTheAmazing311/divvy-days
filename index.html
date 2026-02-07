@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divvy Days - A Visual Novel Experience</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/slack.css">
+    <!-- Persona 5 Style Overrides -->
+    <link rel="stylesheet" href="css/persona5.css">
+    <link rel="stylesheet" href="css/persona5-modals.css">
+</head>
+<body>
+    <div class="game-container scanlines">
+        <!-- Halftone Background Effect -->
+        <div class="halftone-bg"></div>
+        <!-- Header -->
+        <header class="game-header">
+            <div class="day-info">
+                <span id="day-display">Day 1</span>
+                <span class="separator">•</span>
+                <span id="period-display">Morning</span>
+            </div>
+            <div class="header-actions">
+                <button id="save-btn" class="header-btn">💾 Save</button>
+                <button id="load-btn" class="header-btn">📁 Load</button>
+                <button id="menu-btn" class="header-btn">☰ Menu</button>
+            </div>
+        </header>
+
+        <!-- Left Sidebar: Relationships -->
+        <aside class="sidebar left-sidebar" id="relationships-sidebar">
+            <div class="sidebar-header">
+                <h2>Relationships</h2>
+                <button class="sidebar-toggle" id="relationships-toggle">▼</button>
+            </div>
+            <div class="sidebar-content" id="relationships-content">
+                <!-- Dynamically populated -->
+            </div>
+        </aside>
+
+        <!-- Main Scene Area -->
+        <main class="scene-container" id="scene-container">
+            <div class="scene-background" id="scene-background">
+                <div class="background-label" id="background-label">Divvy Lobby</div>
+            </div>
+            <div class="character-portrait" id="character-portrait">
+                <div class="portrait-placeholder" id="portrait-placeholder"></div>
+                <div class="character-name" id="character-name"></div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar: Badges -->
+        <aside class="sidebar right-sidebar" id="badges-sidebar">
+            <div class="sidebar-header">
+                <h2>Achievements</h2>
+                <button class="sidebar-toggle" id="badges-toggle">▼</button>
+            </div>
+            <div class="sidebar-content" id="badges-content">
+                <div class="progress-tracker">
+                    <div class="progress-item">
+                        <span class="progress-label">Core Experiences:</span>
+                        <span id="core-exp-count">0/3</span>
+                    </div>
+                    <div class="progress-item">
+                        <span class="progress-label">Friends Made:</span>
+                        <span id="friends-count">0/5</span>
+                    </div>
+                </div>
+                <div class="badges-list" id="badges-list">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Text Box & Choices -->
+        <section class="interaction-area">
+            <div class="text-box" id="text-box">
+                <div class="text-content" id="text-content">
+                    <!-- Dialogue appears here -->
+                </div>
+            </div>
+            <div class="choices-container" id="choices-container">
+                <!-- Choice buttons appear here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Slack Modal -->
+    <div class="modal-overlay" id="slack-modal">
+        <div class="modal-content slack-modal">
+            <div class="modal-header">
+                <h2>📱 Slack Message</h2>
+                <button class="modal-close" id="slack-close">✕</button>
+            </div>
+            <div class="modal-body" id="slack-body">
+                <div class="slack-character-select" id="slack-character-select">
+                    <p>Who would you like to message?</p>
+                    <div class="character-list" id="slack-character-list">
+                        <!-- Character buttons appear here -->
+                    </div>
+                </div>
+                <div class="slack-conversation" id="slack-conversation" style="display: none;">
+                    <div class="slack-messages" id="slack-messages">
+                        <!-- Messages appear here -->
+                    </div>
+                    <button class="btn btn-primary" id="slack-continue">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Save/Load Modal -->
+    <div class="modal-overlay" id="save-load-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="save-load-title">Save Game</h2>
+                <button class="modal-close" id="save-load-close">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="save-slots" id="save-slots">
+                    <!-- Save slots appear here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Modal -->
+    <div class="modal-overlay" id="menu-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Menu</h2>
+                <button class="modal-close" id="menu-close">✕</button>
+            </div>
+            <div class="modal-body">
+                <button class="menu-option-btn" id="new-game-btn">🎮 New Game</button>
+                <button class="menu-option-btn" id="continue-btn">▶️ Continue</button>
+                <button class="menu-option-btn" id="endings-btn">🏆 Endings Gallery</button>
+                <button class="menu-option-btn" id="about-btn">ℹ️ About</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Badge Unlock Notification -->
+    <div class="notification" id="badge-notification">
+        <div class="notification-content">
+            <div class="notification-icon">🏆</div>
+            <div class="notification-text">
+                <div class="notification-title">Achievement Unlocked!</div>
+                <div class="notification-description" id="notification-description"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ending Screen -->
+    <div class="modal-overlay" id="ending-modal" style="display: none;">
+        <div class="modal-content ending-screen">
+            <div class="ending-content" id="ending-content">
+                <!-- Ending details appear here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Title/Welcome Screen -->
+    <div class="modal-overlay active" id="title-screen">
+        <div class="title-screen-content">
+            <div class="title-logo">
+                <h1 class="title-main">Divvy Days</h1>
+                <p class="title-subtitle">A Visual Novel Experience</p>
+            </div>
+            <div class="title-description">
+                <p>Your first week as a marketing intern at Divvy.</p>
+                <p>Make friends, build relationships, and shape your story.</p>
+            </div>
+            <div class="title-buttons">
+                <button class="title-btn primary" id="title-new-game" data-text="🎮 NEW GAME">
+                    <span class="btn-icon">🎮</span> New Game
+                </button>
+                <button class="title-btn" id="title-continue" data-text="▶️ CONTINUE" style="display: none;">
+                    <span class="btn-icon">▶️</span> Continue
+                </button>
+                <button class="title-btn" id="title-load" data-text="📁 LOAD GAME">
+                    <span class="btn-icon">📁</span> Load Game
+                </button>
+            </div>
+            <div class="title-footer">
+                <p>⏱️ Playtime: 15-20 minutes | 🎯 10 Unique Endings | 💾 Auto-Save Enabled</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/characters.js"></script>
+    <script src="js/badges.js"></script>
+    <script src="js/scenarios.js"></script>
+    <script src="js/endings.js"></script>
+    <script src="js/save.js"></script>
+    <script src="js/slack.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,573 @@
+/* ===== PERSONA 5 TITLE SCREEN ===== */
+.title-screen-content {
+    background: var(--p5-black);
+    border: 8px solid var(--p5-red);
+    border-radius: 0;
+    padding: 80px 60px;
+    max-width: 800px;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
+    box-shadow:
+        0 0 0 4px var(--p5-white),
+        20px 20px 0 0 var(--p5-red),
+        0 0 50px rgba(227, 27, 35, 0.5);
+    position: relative;
+    animation: titleEntrance 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes titleEntrance {
+    0% {
+        transform: scale(0.5) rotate(-10deg);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1) rotate(5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+.title-screen-content::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 150px;
+    height: 150px;
+    background: var(--p5-red);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    border: 5px solid var(--p5-white);
+    animation: starRotate 20s linear infinite;
+}
+
+@keyframes starRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.title-screen-content::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    width: 100px;
+    height: 100px;
+    background: var(--p5-yellow);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    border: 4px solid var(--p5-black);
+    animation: starPulse 2s ease-in-out infinite;
+}
+
+@keyframes starPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.title-logo {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.title-main {
+    font-size: 80px;
+    font-weight: 900;
+    color: var(--p5-white);
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    margin-bottom: 15px;
+    text-shadow:
+        6px 6px 0 var(--p5-red),
+        -3px -3px 0 var(--p5-black),
+        0 0 30px rgba(227, 27, 35, 0.8);
+    animation: titleGlow 2s ease-in-out infinite;
+    transform: skewX(-5deg);
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow:
+            6px 6px 0 var(--p5-red),
+            -3px -3px 0 var(--p5-black),
+            0 0 30px rgba(227, 27, 35, 0.8);
+    }
+    50% {
+        text-shadow:
+            6px 6px 0 var(--p5-red),
+            -3px -3px 0 var(--p5-black),
+            0 0 50px rgba(227, 27, 35, 1);
+    }
+}
+
+.title-subtitle {
+    font-size: 24px;
+    color: var(--p5-yellow);
+    font-weight: 900;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 0 var(--p5-black);
+    background: var(--p5-red);
+    padding: 10px 30px;
+    display: inline-block;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    border: 3px solid var(--p5-white);
+}
+
+.title-description {
+    margin: 40px 0;
+    color: var(--p5-white);
+    font-size: 18px;
+    line-height: 2;
+    font-weight: 700;
+    text-shadow: 2px 2px 0 var(--p5-black);
+}
+
+.title-description p {
+    margin: 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.title-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.title-btn {
+    padding: 20px 50px;
+    font-size: 22px;
+    font-weight: 900;
+    background: var(--p5-red);
+    color: var(--p5-white);
+    border: 4px solid var(--p5-white);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+    text-shadow: 3px 3px 0 var(--p5-black);
+    box-shadow: 5px 5px 0 var(--p5-black);
+}
+
+.title-btn::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--p5-white);
+    color: var(--p5-red);
+    transform: translateY(-100%);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.title-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 8px 8px 0 var(--p5-black);
+}
+
+.title-btn:hover::before {
+    transform: translateY(0);
+}
+
+.title-btn.primary {
+    background: var(--p5-yellow);
+    color: var(--p5-black);
+    border-color: var(--p5-black);
+    font-size: 26px;
+    padding: 25px 60px;
+    box-shadow: 8px 8px 0 var(--p5-red);
+}
+
+.title-btn.primary::before {
+    background: var(--p5-red);
+    color: var(--p5-white);
+}
+
+.title-btn.primary:hover {
+    box-shadow: 10px 10px 0 var(--p5-red);
+}
+
+.btn-icon {
+    font-size: 28px;
+    margin-right: 15px;
+    filter: drop-shadow(2px 2px 0 var(--p5-black));
+}
+
+.title-footer {
+    color: var(--p5-yellow);
+    font-size: 14px;
+    padding-top: 25px;
+    border-top: 3px solid var(--p5-red);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 var(--p5-black);
+}
+
+/* ===== MODAL OVERLAYS PERSONA 5 STYLE ===== */
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.modal-overlay.active {
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background: var(--p5-black);
+    border: 6px solid var(--p5-red);
+    border-radius: 0;
+    box-shadow:
+        0 0 0 3px var(--p5-white),
+        15px 15px 0 0 var(--p5-red);
+    clip-path: polygon(0 0, 100% 0, 99% 100%, 1% 100%);
+    animation: modalSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px) scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    padding: 25px;
+    background: var(--p5-red);
+    border-bottom: 4px solid var(--p5-white);
+    clip-path: polygon(0 0, 100% 0, 99% 100%, 0 100%);
+}
+
+.modal-header h2 {
+    font-size: 24px;
+    color: var(--p5-white);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 0 var(--p5-black);
+}
+
+.modal-close {
+    background: var(--p5-black);
+    border: 3px solid var(--p5-white);
+    color: var(--p5-white);
+    font-size: 28px;
+    width: 40px;
+    height: 40px;
+    clip-path: polygon(20% 0, 80% 0, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0 80%, 0 20%);
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: var(--p5-red);
+    transform: rotate(90deg) scale(1.1);
+}
+
+.modal-body {
+    padding: 25px;
+    background: var(--p5-black);
+}
+
+/* ===== SAVE/LOAD SLOTS PERSONA 5 STYLE ===== */
+.save-slot {
+    background: linear-gradient(90deg, var(--p5-dark-gray) 0%, var(--p5-black) 100%);
+    border: 3px solid var(--p5-red);
+    border-left: 6px solid var(--p5-yellow);
+    padding: 20px;
+    clip-path: polygon(0 0, 100% 0, 99% 100%, 0 100%);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.save-slot::before {
+    content: '▶';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--p5-yellow);
+    font-size: 24px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.save-slot:hover {
+    background: var(--p5-red);
+    transform: translateX(15px);
+    box-shadow: -8px 8px 0 var(--p5-white);
+}
+
+.save-slot:hover::before {
+    opacity: 1;
+    left: 5px;
+}
+
+.save-slot.empty {
+    border-left-color: #666;
+    opacity: 0.6;
+}
+
+.save-slot-header {
+    margin-bottom: 10px;
+}
+
+.save-slot-title {
+    font-weight: 900;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--p5-white);
+    text-shadow: 2px 2px 0 var(--p5-black);
+}
+
+.save-slot-date {
+    font-size: 13px;
+    color: var(--p5-yellow);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.save-slot-info {
+    font-size: 15px;
+    color: #ccc;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== MENU OPTIONS PERSONA 5 STYLE ===== */
+.menu-option-btn {
+    background: var(--p5-red);
+    color: var(--p5-white);
+    border: 4px solid var(--p5-white);
+    font-weight: 900;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 20px 30px;
+    clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
+    text-shadow: 3px 3px 0 var(--p5-black);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-option-btn::before {
+    content: '▶';
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    color: var(--p5-yellow);
+    transition: all 0.3s ease;
+}
+
+.menu-option-btn:hover {
+    background: var(--p5-white);
+    color: var(--p5-red);
+    border-color: var(--p5-red);
+    transform: translateX(20px) scale(1.05);
+    box-shadow: -10px 10px 0 var(--p5-red);
+}
+
+.menu-option-btn:hover::before {
+    left: 15px;
+}
+
+/* ===== ENDING SCREEN PERSONA 5 STYLE ===== */
+.ending-screen {
+    max-width: 900px;
+    border: 8px solid var(--p5-red);
+    box-shadow:
+        0 0 0 4px var(--p5-white),
+        20px 20px 0 0 var(--p5-black);
+}
+
+.ending-content {
+    padding: 60px;
+    background: var(--p5-black);
+    position: relative;
+}
+
+.ending-content::before {
+    content: '★';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 80px;
+    color: var(--p5-yellow);
+    text-shadow: 5px 5px 0 var(--p5-black);
+    animation: starPulse 2s ease-in-out infinite;
+}
+
+.ending-title {
+    font-size: 48px;
+    color: var(--p5-white);
+    margin-bottom: 15px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow:
+        5px 5px 0 var(--p5-red),
+        -2px -2px 0 var(--p5-black);
+    transform: skewX(-5deg);
+}
+
+.ending-subtitle {
+    font-size: 22px;
+    color: var(--p5-yellow);
+    margin-bottom: 35px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    background: var(--p5-red);
+    padding: 10px 25px;
+    display: inline-block;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    border: 3px solid var(--p5-white);
+}
+
+.ending-text {
+    font-size: 18px;
+    line-height: 2;
+    margin-bottom: 35px;
+    color: var(--p5-white);
+    font-weight: 600;
+    text-shadow: 1px 1px 2px var(--p5-black);
+}
+
+.ending-stats {
+    background: var(--p5-red);
+    border: 4px solid var(--p5-white);
+    padding: 25px;
+    margin-bottom: 35px;
+    clip-path: polygon(0 0, 100% 0, 99% 100%, 1% 100%);
+}
+
+.ending-stat {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 3px solid var(--p5-white);
+}
+
+.ending-stat:last-child {
+    border-bottom: none;
+}
+
+.ending-stat-label {
+    font-size: 18px;
+    color: var(--p5-white);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 var(--p5-black);
+}
+
+.ending-stat-value {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--p5-yellow);
+    text-shadow: 2px 2px 0 var(--p5-black);
+    border: 3px solid var(--p5-yellow);
+    padding: 2px 15px;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
+
+.ending-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.ending-btn {
+    padding: 18px 40px;
+    background: var(--p5-black);
+    color: var(--p5-white);
+    border: 4px solid var(--p5-white);
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 0 var(--p5-black);
+}
+
+.ending-btn:hover {
+    background: var(--p5-white);
+    color: var(--p5-black);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 0 var(--p5-red);
+}
+
+.ending-btn.primary {
+    background: var(--p5-yellow);
+    color: var(--p5-black);
+    border-color: var(--p5-black);
+}
+
+.ending-btn.primary:hover {
+    background: var(--p5-red);
+    color: var(--p5-white);
+    border-color: var(--p5-white);
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+@media (max-width: 767px) {
+    .title-screen-content {
+        padding: 40px 25px;
+        max-width: 95%;
+    }
+
+    .title-main {
+        font-size: 48px;
+        letter-spacing: 5px;
+    }
+
+    .title-subtitle {
+        font-size: 18px;
+        letter-spacing: 3px;
+    }
+
+    .title-btn {
+        padding: 18px 35px;
+        font-size: 18px;
+    }
+
+    .title-btn.primary {
+        font-size: 20px;
+        padding: 20px 40px;
+    }
+
+    .ending-title {
+        font-size: 32px;
+    }
+
+    .ending-subtitle {
+        font-size: 16px;
+    }
+}

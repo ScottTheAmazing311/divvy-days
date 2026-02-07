@@ -1,0 +1,639 @@
+/* ===== PERSONA 5 STYLE OVERRIDES ===== */
+
+/* Persona 5 Color Palette */
+:root {
+    --p5-red: #E31B23;
+    --p5-dark-red: #B11116;
+    --p5-black: #000000;
+    --p5-dark-gray: #1a1a1a;
+    --p5-white: #FFFFFF;
+    --p5-yellow: #FFD700;
+    --p5-shadow: rgba(0, 0, 0, 0.8);
+}
+
+/* ===== GLOBAL PERSONA 5 STYLING ===== */
+body {
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    background-color: var(--p5-black);
+    color: var(--p5-white);
+    overflow: hidden;
+}
+
+/* ===== DIAGONAL SLASH EFFECTS ===== */
+.diagonal-slash::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 45%, var(--p5-red) 45%, var(--p5-red) 55%, transparent 55%);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* ===== GAME CONTAINER REDESIGN ===== */
+.game-container {
+    background-color: var(--p5-black);
+    position: relative;
+}
+
+.game-header {
+    background: linear-gradient(90deg, var(--p5-black) 0%, var(--p5-dark-red) 100%);
+    border-bottom: 4px solid var(--p5-red);
+    box-shadow: 0 4px 20px var(--p5-shadow);
+    clip-path: polygon(0 0, 100% 0, 98% 100%, 0 100%);
+}
+
+.day-info {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--p5-white);
+    text-shadow: 3px 3px 0 var(--p5-red), -1px -1px 0 var(--p5-black);
+    transform: skewX(-10deg);
+}
+
+.day-info span {
+    display: inline-block;
+}
+
+.separator {
+    color: var(--p5-red) !important;
+    font-size: 28px;
+    margin: 0 10px;
+}
+
+/* ===== HEADER BUTTONS PERSONA 5 STYLE ===== */
+.header-btn {
+    background: var(--p5-red);
+    color: var(--p5-white);
+    border: 3px solid var(--p5-white);
+    padding: 10px 25px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+    transition: all 0.2s ease;
+    text-shadow: 2px 2px 0 var(--p5-black);
+    position: relative;
+    overflow: hidden;
+}
+
+.header-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.header-btn:hover {
+    background: var(--p5-white);
+    color: var(--p5-red);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px var(--p5-shadow);
+}
+
+.header-btn:hover::before {
+    left: 100%;
+}
+
+/* ===== SIDEBARS PERSONA 5 STYLE ===== */
+.sidebar {
+    background: linear-gradient(180deg, var(--p5-black) 0%, var(--p5-dark-gray) 100%);
+    border: none;
+    position: relative;
+}
+
+.left-sidebar {
+    border-right: 4px solid var(--p5-red);
+    clip-path: polygon(0 0, 100% 0, 100% 98%, 0 100%);
+}
+
+.right-sidebar {
+    border-left: 4px solid var(--p5-red);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 98%);
+}
+
+.sidebar-header {
+    background: var(--p5-red);
+    border: none;
+    padding: 20px 15px;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+}
+
+.sidebar-header::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--p5-white);
+    clip-path: polygon(0 0, 95% 0, 90% 100%, 0 100%);
+}
+
+.sidebar-header h2 {
+    color: var(--p5-white);
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 0 var(--p5-black);
+    transform: skewX(-5deg);
+}
+
+.sidebar-content {
+    background: var(--p5-black);
+    padding: 20px 15px;
+}
+
+/* ===== RELATIONSHIP ITEMS PERSONA 5 STYLE ===== */
+.relationship-item {
+    background: linear-gradient(90deg, var(--p5-dark-gray) 0%, var(--p5-black) 100%);
+    border: 2px solid var(--p5-red);
+    border-left: 5px solid var(--p5-red);
+    margin-bottom: 15px;
+    padding: 12px;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 98% 100%, 0 100%);
+    transition: all 0.3s ease;
+}
+
+.relationship-item::before {
+    content: '▶';
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--p5-red);
+    font-size: 20px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.relationship-item:hover {
+    background: var(--p5-red);
+    transform: translateX(10px);
+    box-shadow: -5px 5px 0 var(--p5-white);
+}
+
+.relationship-item:hover::before {
+    opacity: 1;
+    left: 5px;
+}
+
+.relationship-name {
+    font-weight: 900;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--p5-white);
+    text-shadow: 2px 2px 0 var(--p5-black);
+}
+
+.relationship-status {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.status-icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 0;
+    border: 2px solid var(--p5-white);
+    clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+}
+
+.relationship-score {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--p5-yellow);
+    text-shadow: 2px 2px 0 var(--p5-black);
+    border: 2px solid var(--p5-yellow);
+    padding: 2px 8px;
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
+}
+
+/* ===== SCENE CONTAINER PERSONA 5 STYLE ===== */
+.scene-container {
+    background: var(--p5-black);
+    position: relative;
+    border: 4px solid var(--p5-red);
+    clip-path: polygon(0 0, 100% 0, 100% 98%, 2% 100%);
+}
+
+.scene-background {
+    position: relative;
+}
+
+.scene-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(227, 27, 35, 0.05) 10px,
+        rgba(227, 27, 35, 0.05) 20px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.background-label {
+    font-size: 48px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--p5-white);
+    text-shadow: 5px 5px 0 var(--p5-red), -2px -2px 0 var(--p5-black);
+    letter-spacing: 8px;
+    transform: skewX(-10deg);
+    z-index: 2;
+}
+
+/* ===== CHARACTER PORTRAIT PERSONA 5 STYLE ===== */
+.character-portrait {
+    bottom: -20px;
+    right: 40px;
+    width: 350px;
+    height: 550px;
+    filter: drop-shadow(15px 15px 0 var(--p5-red)) drop-shadow(-4px -4px 0 var(--p5-black));
+    z-index: 10;
+}
+
+.portrait-placeholder {
+    width: 280px;
+    height: 420px;
+    border: 6px solid var(--p5-white);
+    border-radius: 0;
+    box-shadow:
+        0 0 0 4px var(--p5-red),
+        20px 20px 0 0 var(--p5-black);
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+    position: relative;
+}
+
+.portrait-placeholder::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 100px;
+    height: 100px;
+    background: var(--p5-red);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    border: 4px solid var(--p5-white);
+    z-index: -1;
+}
+
+.character-name {
+    background: var(--p5-red);
+    color: var(--p5-white);
+    font-weight: 900;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 12px 25px;
+    border: 4px solid var(--p5-white);
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    text-shadow: 4px 4px 0 var(--p5-black);
+    box-shadow: 6px 6px 0 var(--p5-black);
+}
+
+/* ===== TEXT BOX PERSONA 5 STYLE ===== */
+.interaction-area {
+    background: linear-gradient(135deg, var(--p5-black) 0%, var(--p5-dark-gray) 100%);
+    border-top: 5px solid var(--p5-red);
+    position: relative;
+    grid-row: 3;
+    min-height: 350px;
+    padding: 20px;
+}
+
+.interaction-area::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--p5-white),
+        var(--p5-white) 10px,
+        var(--p5-red) 10px,
+        var(--p5-red) 20px
+    );
+}
+
+.text-box {
+    background: var(--p5-black);
+    border: 4px solid var(--p5-red);
+    border-radius: 0;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 99% 100%, 1% 100%);
+    box-shadow: inset 0 0 20px rgba(227, 27, 35, 0.2);
+    min-height: 180px;
+    max-height: 200px;
+    padding: 20px;
+}
+
+.text-box::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    width: 60px;
+    height: 20px;
+    background: var(--p5-red);
+    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+    border: 2px solid var(--p5-white);
+}
+
+.text-content {
+    font-size: 22px;
+    line-height: 2.1;
+    color: var(--p5-white);
+    font-family: Arial, sans-serif;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px var(--p5-black);
+}
+
+.text-content p {
+    margin-bottom: 18px;
+    animation: textSlideIn 0.3s ease;
+}
+
+@keyframes textSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ===== CHOICE BUTTONS PERSONA 5 STYLE ===== */
+.choices-container {
+    gap: 15px;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.btn-choice {
+    background: linear-gradient(90deg, var(--p5-red) 0%, var(--p5-dark-red) 100%);
+    color: var(--p5-white);
+    border: 3px solid var(--p5-white);
+    font-weight: 900;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 20px 30px;
+    clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
+    position: relative;
+    overflow: hidden;
+    text-shadow: 2px 2px 0 var(--p5-black);
+    transition: all 0.2s ease;
+    min-height: 65px;
+}
+
+.btn-choice::before {
+    content: '▶';
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: var(--p5-yellow);
+    transition: all 0.3s ease;
+}
+
+.btn-choice::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: right 0.5s ease;
+}
+
+.btn-choice:hover {
+    background: var(--p5-white);
+    color: var(--p5-red);
+    border-color: var(--p5-red);
+    transform: translateX(15px) scale(1.02);
+    box-shadow: -8px 8px 0 var(--p5-red);
+}
+
+.btn-choice:hover::before {
+    left: 10px;
+}
+
+.btn-choice:hover::after {
+    right: 100%;
+}
+
+.btn-choice.slack-choice {
+    background: linear-gradient(90deg, var(--p5-black) 0%, var(--p5-dark-gray) 100%);
+    border-color: var(--p5-yellow);
+}
+
+.btn-choice.slack-choice:hover {
+    background: var(--p5-yellow);
+    color: var(--p5-black);
+    border-color: var(--p5-black);
+}
+
+/* ===== BADGES PERSONA 5 STYLE ===== */
+.progress-tracker {
+    background: var(--p5-red);
+    border: 3px solid var(--p5-white);
+    clip-path: polygon(0 0, 100% 0, 98% 100%, 0 100%);
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.progress-item {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 0;
+    border-bottom: 2px solid var(--p5-white);
+}
+
+.progress-item:last-child {
+    border-bottom: none;
+}
+
+.progress-label {
+    color: var(--p5-white);
+    text-shadow: 2px 2px 0 var(--p5-black);
+}
+
+#core-exp-count,
+#friends-count {
+    color: var(--p5-yellow);
+    font-size: 18px;
+    text-shadow: 2px 2px 0 var(--p5-black);
+    border: 2px solid var(--p5-yellow);
+    padding: 2px 8px;
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
+}
+
+.badge-item {
+    background: linear-gradient(90deg, var(--p5-dark-gray) 0%, var(--p5-black) 100%);
+    border: 2px solid var(--p5-white);
+    border-left: 5px solid var(--p5-yellow);
+    clip-path: polygon(0 0, 100% 0, 98% 100%, 0 100%);
+    margin-bottom: 12px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.badge-item:hover {
+    background: var(--p5-yellow);
+    transform: translateX(10px);
+    box-shadow: -5px 5px 0 var(--p5-red);
+}
+
+.badge-item:hover .badge-name,
+.badge-item:hover .badge-description {
+    color: var(--p5-black);
+}
+
+.badge-item.core-badge {
+    border-left-color: var(--p5-red);
+    background: linear-gradient(90deg, var(--p5-dark-red) 0%, var(--p5-black) 100%);
+}
+
+.badge-item.core-badge::before {
+    content: '★';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--p5-yellow);
+    font-size: 24px;
+    text-shadow: 2px 2px 0 var(--p5-black);
+}
+
+.badge-icon {
+    font-size: 28px;
+    filter: drop-shadow(2px 2px 0 var(--p5-black));
+}
+
+.badge-name {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--p5-white);
+    text-shadow: 2px 2px 0 var(--p5-black);
+}
+
+.badge-description {
+    color: #ccc;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===== NOTIFICATION PERSONA 5 STYLE ===== */
+.notification {
+    background: var(--p5-black);
+    border: 4px solid var(--p5-red);
+    box-shadow:
+        0 0 0 2px var(--p5-white),
+        10px 10px 0 0 var(--p5-red);
+    clip-path: polygon(0 0, 100% 0, 98% 100%, 0 100%);
+    min-width: 350px;
+}
+
+.notification.show {
+    animation: notificationSlide 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes notificationSlide {
+    0% {
+        transform: translateX(500px) rotate(10deg);
+        opacity: 0;
+    }
+    60% {
+        transform: translateX(-20px) rotate(-5deg);
+    }
+    100% {
+        transform: translateX(0) rotate(0);
+        opacity: 1;
+    }
+}
+
+.notification-icon {
+    font-size: 48px;
+    filter: drop-shadow(3px 3px 0 var(--p5-red));
+}
+
+.notification-title {
+    color: var(--p5-red);
+    font-weight: 900;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 var(--p5-black);
+}
+
+.notification-description {
+    color: var(--p5-white);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== HALFTONE TEXTURE EFFECT ===== */
+.halftone-bg {
+    background-image:
+        radial-gradient(circle, var(--p5-red) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* ===== SCANLINE EFFECT ===== */
+.scanlines::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 1000;
+}
