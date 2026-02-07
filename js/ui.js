@@ -197,7 +197,7 @@ class UIRenderer {
 
             item.innerHTML = `
                 <div class="relationship-info">
-                    <div class="relationship-name">${char.name}</div>
+                    <div class="relationship-name" data-character-id="${charId}">${char.name}</div>
                     <div class="relationship-status">
                         <span class="status-icon ${statusClass}"></span>
                         <span>${status}</span>
@@ -205,6 +205,10 @@ class UIRenderer {
                 </div>
                 <div class="relationship-score">${rel.score >= 0 ? '+' : ''}${rel.score}</div>
             `;
+
+            // Add click handler to character name
+            const nameElement = item.querySelector('.relationship-name');
+            nameElement.addEventListener('click', () => this.showCharacterBio(charId));
 
             this.relationshipsContent.appendChild(item);
         });
@@ -414,6 +418,49 @@ class UIRenderer {
             slotsContainer.appendChild(slotDiv);
         });
 
+        modal.classList.add('active');
+    }
+
+    // Show character bio modal
+    showCharacterBio(characterId) {
+        const character = characters[characterId];
+        if (!character) return;
+
+        const modal = document.getElementById('character-bio-modal');
+
+        // Populate modal with character data
+        document.getElementById('character-bio-name').textContent = character.name;
+        document.getElementById('character-bio-role').textContent = character.role;
+
+        // Format personality array as a comma-separated string
+        const personalityText = character.personality.join(', ');
+        document.getElementById('character-bio-personality').textContent = personalityText;
+
+        // Format likes array as a comma-separated string
+        const likesText = character.likes.join(', ');
+        document.getElementById('character-bio-likes').textContent = likesText;
+
+        // Show quirk
+        document.getElementById('character-bio-quirk').textContent = character.quirk;
+
+        // Set portrait with character color as background
+        const portraitDiv = document.getElementById('character-bio-portrait');
+        portraitDiv.style.backgroundColor = character.color;
+
+        // Try to load character image
+        const img = new Image();
+        img.onload = () => {
+            portraitDiv.style.backgroundImage = `url('${character.portrait}')`;
+            portraitDiv.style.backgroundSize = 'cover';
+            portraitDiv.style.backgroundPosition = 'center';
+        };
+        img.onerror = () => {
+            // Keep the color background if image doesn't load
+            portraitDiv.style.backgroundImage = '';
+        };
+        img.src = character.portrait;
+
+        // Show the modal
         modal.classList.add('active');
     }
 }

@@ -635,6 +635,61 @@
     }
 }
 
+/* ===== CHARACTER BIO MODAL ===== */
+.character-bio-modal {
+    max-width: 700px;
+}
+
+.character-bio-body {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.character-bio-portrait {
+    width: 200px;
+    height: 280px;
+    border-radius: 10px;
+    border: 3px solid #e94560;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.character-bio-info {
+    flex: 1;
+}
+
+.bio-section {
+    margin-bottom: 20px;
+}
+
+.bio-section:last-child {
+    margin-bottom: 0;
+}
+
+.bio-section h3 {
+    font-size: 14px;
+    color: #e94560;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.bio-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.relationship-name {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.relationship-name:hover {
+    color: #e94560;
+}
+
 /* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
     from {
@@ -706,5 +761,15 @@
 
     .ending-btn {
         width: 100%;
+    }
+
+    .character-bio-body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .character-bio-portrait {
+        width: 150px;
+        height: 210px;
     }
 }
