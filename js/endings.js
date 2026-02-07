@@ -146,7 +146,7 @@ const endings = {
         subtitle: 'Ending 1 - Bad Ending',
         text: [
             "Your first week at Divvy has been a disaster. You haven't made any friends, you've actively alienated multiple coworkers, and missed every important company experience.",
-            "On Friday afternoon, Harper from HR calls you into a meeting. 'We've decided this isn't a good fit,' she says gently. 'Today will be your last day.'",
+            "On Friday afternoon, Andre calls you into a meeting. 'Look-uh-this-is-hard-for-me-to-say-but-I-don't-think-this-is-working-out,' he says, speaking faster than usual. 'I think today should be your last day.'",
             "As you pack your things, you wonder what you could have done differently. Maybe try being nicer to people?"
         ],
         requirements: {

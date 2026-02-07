@@ -100,26 +100,6 @@ const slackConversations = {
         relationshipChange: 7
     },
 
-    // Harper conversations
-    harper_1_2: {
-        userMessage: "Hey Harper, just wanted to say hi!",
-        responses: [
-            { sender: 'harper', text: "Hi! Welcome to Divvy! 🎉" },
-            { sender: 'harper', text: "If you need anything HR-related, my door is always open." }
-        ],
-        relationshipChange: 5
-    },
-
-    // Alex conversations
-    alex_3_2: {
-        userMessage: "Hey Alex, can you explain that data dashboard?",
-        responses: [
-            { sender: 'alex', text: "Sure! It's pretty straightforward once you understand the metrics." },
-            { sender: 'alex', text: "Happy to walk you through it sometime!" }
-        ],
-        relationshipChange: 5
-    },
-
     // Default/generic conversations
     default_positive: {
         userMessage: "Hey, how's it going?",

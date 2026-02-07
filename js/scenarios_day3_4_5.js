@@ -7,98 +7,98 @@ const day3_4_5_scenarios = {
         period: 1,
         periodName: "Morning",
         background: "office_desk",
-        character: null,
+        character: "ramona",
         characterExpression: "neutral",
         text: [
             "Wednesday morning. Mid-week. You're officially settling into Divvy life.",
             "The all-hands meeting from yesterday is still the hot topic - you can hear hushed conversations about the enterprise pivot across the office.",
-            "Alex, the data analyst, appears at your desk with a laptop tucked under one arm. 'Morning. Heard you're working on Q4 campaign materials.'",
-            "They speak precisely, factually. 'I pulled some user analytics that might help. Engagement metrics, conversion funnels, customer segments. Want to see?'"
+            "Ramona from Business Development stops by your desk with her usual warm energy. 'Hey! Heard you're working on Q4 campaign materials.'",
+            "'I've been working with customers for a while now - I have some insights about what messaging really resonates. Want to collaborate?'"
         ],
         choices: [
             {
-                id: "accept_alex_help",
+                id: "accept_ramona_help",
                 text: "That would be incredibly helpful, thanks!",
-                next: "day3_morning_alex_data",
+                next: "day3_morning_ramona_collab",
                 effects: {
-                    relationships: { alex: 10 }
+                    relationships: { ramona: 10 }
                 }
             },
             {
-                id: "decline_alex",
-                text: "I'm good for now, but I'll reach out if I need data",
+                id: "decline_ramona",
+                text: "I'm good for now, but I'll reach out if I need input",
                 next: "day3_morning_solo_work",
                 effects: {
-                    relationships: { alex: -3 }
+                    relationships: { ramona: -3 }
                 }
             },
             {
                 id: "ask_about_pivot",
                 text: "Sure - but first, what do you think about the pivot?",
-                next: "day3_morning_alex_opinion",
+                next: "day3_morning_ramona_opinion",
                 effects: {
-                    relationships: { alex: 5 }
+                    relationships: { ramona: 5 }
                 }
             }
         ]
     },
 
-    day3_morning_alex_data: {
+    day3_morning_ramona_collab: {
         day: 3,
         period: 1,
         periodName: "Morning",
         background: "office_desk",
-        character: null,
+        character: "ramona",
         characterExpression: "happy",
         text: [
-            "Alex pulls up a chair and opens a pristine spreadsheet. Everything is color-coded and perfectly organized.",
-            "'These are your highest-value customer segments.' They point at the data with the precision of a surgeon. 'Notice the pattern? Small businesses in the 10-50 employee range have the highest lifetime value and lowest churn.'",
-            "'Here's the conversion funnel - see where people drop off? That's your opportunity. If marketing focuses messaging here, you could improve conversions by an estimated 23%.'",
-            "You're learning more in ten minutes with Alex than you did in hours of reading documentation alone.",
-            "'Data tells stories,' Alex says quietly. 'Most people just don't know how to listen.'"
+            "Ramona pulls up a chair, genuinely excited to help. Her warmth makes collaboration feel natural.",
+            "'Okay, so from talking to customers every day, here's what I've learned: They don't care about features - they care about saving time and reducing headaches.'",
+            "'When I'm closing deals, the messaging that works is simple: Show them the pain point first, then show how Divvy solves it in like 30 seconds. That's it.'",
+            "'For the Q4 campaign, focus on the expense approval workflow. That's where people feel the most frustration with their current tools.'",
+            "You're learning more in ten minutes with Ramona than you did in hours of reading documentation alone."
         ],
         choices: [
             {
                 id: "ask_deeper_questions",
-                text: "Can you show me how to read this data myself?",
+                text: "Can you tell me more about common customer objections?",
                 next: "day3_late_morning_start",
                 effects: {
-                    relationships: { alex: 8 },
-                    badges: ["data_driven"]
+                    relationships: { ramona: 8 },
+                    badges: ["customer_focused"]
                 }
             },
             {
-                id: "thank_alex_move_on",
+                id: "thank_ramona_move_on",
                 text: "This is perfect, thank you so much!",
                 next: "day3_late_morning_start",
                 effects: {
-                    relationships: { alex: 5 }
+                    relationships: { ramona: 5 }
                 }
             }
         ]
     },
 
-    day3_morning_alex_opinion: {
+    day3_morning_ramona_opinion: {
         day: 3,
         period: 1,
         periodName: "Morning",
         background: "office_desk",
-        character: null,
+        character: "ramona",
         characterExpression: "neutral",
         text: [
-            "Alex pauses, considering the question with analytical precision.",
-            "'From a purely data-driven perspective? The enterprise pivot is risky. Our retention metrics and customer satisfaction scores are highest among small businesses. Enterprise clients have longer sales cycles and higher acquisition costs.'",
-            "They adjust their glasses. 'But Blake isn't looking at quarterly metrics - he's looking at three-year projections. Different time horizon, different conclusions.'",
-            "'The data supports both arguments depending on which variables you prioritize. That's why leadership decisions are hard - it's not always about what the numbers say. It's about which numbers you choose to care about.'",
-            "You hadn't thought about it that way before."
+            "Ramona pauses, choosing her words carefully.",
+            "'Honestly? I'm torn. I love working with small businesses - they're so grateful for what we do, and we really help them. But... enterprise deals could change everything for the company.'",
+            "'From a business development perspective, bigger clients mean more stable revenue. But it also means we might lose what makes Divvy special - that personal touch.'",
+            "'I trust Andre and the leadership team to figure it out. I just hope we don't forget about the small businesses that got us here.'",
+            "You hadn't thought about it that way before. Ramona cares about the mission, not just the strategy."
         ],
         choices: [
             {
-                id: "continue_to_data",
-                text: "That makes sense. Can you show me those analytics now?",
-                next: "day3_morning_alex_data",
+                id: "continue_to_collab",
+                text: "That makes sense. Can you still help with the campaign?",
+                next: "day3_morning_ramona_collab",
                 effects: {
-                    relationships: { alex: 8 }
+                    relationships: { ramona: 8 }
                 }
             }
         ]
@@ -111,9 +111,9 @@ const day3_4_5_scenarios = {
         background: "office_desk",
         character: null,
         text: [
-            "Alex nods once - no visible offense taken - and heads back to their desk.",
-            "You work through your marketing materials solo, cross-referencing documentation and making educated guesses about user behavior.",
-            "It's slower without Alex's expertise, but you're learning by doing. Trial and error has its place.",
+            "Ramona nods understandingly - no visible offense taken - and heads back to her desk.",
+            "You work through your marketing materials solo, cross-referencing documentation and making educated guesses about what messaging might resonate.",
+            "It's slower without Ramona's customer insights, but you're learning by doing. Trial and error has its place.",
             "Around you, the office hums with Wednesday energy - that mid-week push."
         ],
         choices: [
@@ -576,7 +576,7 @@ const day3_4_5_scenarios = {
             "Colby nods approvingly and pulls up a chair. 'Okay cool, let me give you the rundown.'",
             "He explains the webinar series - topics, target audience, goals. It's a lot to take in, but he's surprisingly clear about the objectives.",
             "'We want to position Divvy as the smart choice for finance ops people. Not just a tool - like, a partner who gets their challenges.'",
-            "'You'll work with design for visuals, Jacob for product positioning, maybe Alex for data to back up the value prop. But the messaging? That's all you, bro.'",
+            "'You'll work with Ramona for customer insights, Jacob for product positioning, Pat and the design team for visuals. But the messaging? That's all you, bro.'",
             "He stands up. 'I'm here if you need me. But I trust your judgment. That's why I'm giving you this.'",
             "Responsibility feels good. And terrifying. Mostly good."
         ],
@@ -1167,7 +1167,7 @@ const day3_4_5_scenarios = {
             "The office goes quiet as everyone reads.",
             "'Team - After thoughtful consideration and input from many of you, we're officially moving forward with the enterprise pivot. This was not an easy decision, and I want to acknowledge that not everyone agrees with it. That's okay. Diverse perspectives make us stronger.'",
             "'Starting next week, we'll begin restructuring product roadmap and go-to-market strategy. There will be changes - some team reorganization, new roles, evolved priorities. This will be an adjustment period.'",
-            "'I value transparency, so here's my ask: If you have concerns, talk to me or Harper directly. If you have ideas for how to make this transition successful, I want to hear them. If you fundamentally can't get behind this direction... I'll understand.'",
+            "'I value transparency, so here's my ask: If you have concerns, come talk to me directly. If you have ideas for how to make this transition successful, I want to hear them. If you fundamentally can't get behind this direction... I'll understand.'",
             "'Thank you to everyone who contributed to this conversation. Especially those who disagreed with me - that takes courage. Let's build something great together. - Blake'",
             "You watch reactions around the office. Pat (blake) reads it with his usual sarcastic expression, mutters something that sounds like 'finally made a damn decision.' Jacob (jordan) looks thoughtful, maybe a little resigned. Andre is already planning something, typing frantically."
         ],
@@ -1203,7 +1203,7 @@ const day3_4_5_scenarios = {
         character: null,
         text: [
             "The decision is made. For better or worse, Divvy is pivoting to enterprise.",
-            "You think about Alex's comment - different time horizons, different priorities. Blake's betting on long-term growth. Jacob was advocating for staying true to original values.",
+            "You think about Ramona's perspective - the tension between helping small businesses and securing bigger, more stable revenue. Blake's betting on long-term growth. Jacob was advocating for staying true to original values.",
             "Both can be right from their own perspective.",
             "What matters now is execution. The decision is made - now the team needs to make it work.",
             "You wonder how this will affect your role, the company culture, the products you'll market.",
@@ -1476,7 +1476,7 @@ const day3_4_5_scenarios = {
         character: "andre",
         characterExpression: "happy",
         text: [
-            "'Oh-uh-let's-see.' Andre counts on his fingers. 'Me-Jesse-Chandler-Colby-Ramona-Pat-Casper-Jacob-maybe-Alex-if-we-can-convince-them-to-stop-working.'",
+            "'Oh-uh-let's-see.' Andre counts on his fingers. 'Me-Jesse-Chandler-Ramona-Pat-Casper-Jacob-usually-Colby-if-he's-around.'",
             "'Basically-anyone-who's-cool-and-wants-to-decompress-after-the-week. It's-super-casual-we-literally-just-walk-talk-buy-snacks-and-walk-back.'",
             "'But-it's-important-you-know? Like-it's-our-way-of-saying-we're-not-just-coworkers-we're-actually-friends-who-happen-to-work-together.'",
             "Jesse appears behind Andre with his signature twinkle. 'Translation: it's mandatory fun. But actually fun.'",

@@ -234,11 +234,11 @@ const day1_scenarios = {
         characterExpression: "happy",
         text: [
             "Jacob walks you around the office, pointing out people with the precision of someone who's thought about organizational structure.",
-            "'So that's Chandler over there with the headphones - he's also a marketing intern. Sarcastic as hell, super competitive, but good at what he does. He'll talk to you when he wants to, don't take it personally.'",
-            "'Jesse in marketing ops - the guy who's currently trying to sneak up behind Andre's desk. He loves pranking people, but he's genuinely great at his job when he's not being ridiculous.'",
-            "'Colby, your supervisor - total gym bro energy, but he actually knows his stuff. Just don't try to explain anything too technical to him.'",
-            "'Casper and Pat are our customer success managers. Casper's super helpful and supportive. Pat... well, Pat's hilarious and sarcastic but won't actually be a jerk to you unless you deserve it.'",
-            "'And Harper does HR, Alex is our data analyst. You'll meet everyone eventually.'"
+            "'So that's Chandler over there with the headphones - he's also a marketing intern under Andre. Sarcastic as hell, super competitive, but good at what he does. He'll talk to you when he wants to, don't take it personally.'",
+            "'Jesse in marketing ops - the guy who's currently trying to sneak up behind Andre's desk. He loves pranking people, but he's genuinely great at his job when he's not being ridiculous. Also reports to Andre.'",
+            "'Colby's in sales - total gym bro energy. You'll probably bump into him occasionally. He's... a lot.'",
+            "'Casper's in customer success, super helpful and supportive. Pat's a product designer - hilarious and sarcastic but won't actually be a jerk to you unless you deserve it. Both are friends with Andre.'",
+            "'Ramona's in business development - probably the most welcoming person here. You'll like her.'"
         ],
         choices: [
             {

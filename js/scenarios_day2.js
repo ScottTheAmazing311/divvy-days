@@ -372,37 +372,25 @@ const day2_scenarios = {
         period: 4,
         periodName: "Late Afternoon",
         background: "office_desk",
-        character: "harper",
-        characterExpression: "neutral",
+        character: null,
+        characterExpression: null,
         text: [
-            "Harper from HR stops by your desk late in the afternoon with her usual organized demeanor.",
-            "'Hey! Just wanted to check in - how's your first week going so far?' She has a professional but genuine warmth.",
-            "'I know that all-hands was probably a lot to process. My door is always open if you have any questions or concerns. That's what I'm here for.'"
+            "Late afternoon. The all-hands meeting from earlier is still the hot topic across the office.",
+            "You can hear hushed conversations about the enterprise pivot - some people excited about growth, others worried about losing focus on small businesses.",
+            "You focus on wrapping up your work for the day, processing everything you've learned."
         ],
         choices: [
             {
-                id: "honest_feedback",
-                text: "It's going well, everyone's been really welcoming",
+                id: "reflect_on_day",
+                text: "Reflect on the meeting and head home",
                 next: "day2_end",
-                effects: {
-                    relationships: { harper: 8 }
-                }
+                effects: {}
             },
             {
-                id: "mention_concerns",
-                text: "A little overwhelming, but in a good way",
+                id: "check_slack",
+                text: "Send a quick Slack message before leaving",
                 next: "day2_end",
-                effects: {
-                    relationships: { harper: 10 }
-                }
-            },
-            {
-                id: "all_good",
-                text: "Everything's great, thanks for checking!",
-                next: "day2_end",
-                effects: {
-                    relationships: { harper: 5 }
-                }
+                effects: {}
             }
         ]
     },
