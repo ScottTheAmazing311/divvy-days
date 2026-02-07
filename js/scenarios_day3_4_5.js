@@ -448,10 +448,10 @@ const day3_4_5_scenarios = {
         character: "jesse",
         characterExpression: "happy",
         text: [
-            "By 5:30 PM, most of the office has cleared out. It's just you, Chandler, Andre, Jesse, and Colby clustered in the marketing area.",
+            "By 5:30 PM, most of the office has cleared out. It's just you, Chandler, Andre, and Jesse staying late to work on the campaign.",
             "Andre's already on his third energy drink of the day, talking at lightning speed: 'Okay-so-if-we-can-finish-the-email-sequence-tonight-we-can-launch-Monday-which-gives-us-a-full-week-before-the-webinar-and-that's-perfect-timing-for-follow-up.'",
             "Jesse puts on a curated Spotify playlist - some indie electronic stuff. 'Work playlist. Let's vibe.'",
-            "Pizza arrives at 6:15. Colby's heading out to the gym but grabs two slices first. 'Gotta hit chest and tris, bros. You got this!' He pounds his chest and leaves.",
+            "Pizza arrives at 6:15. Colby walks by on his way out and grabs two slices. 'Yo, staying late? Respect. I gotta hit chest and tris though. You bros got this!' He pounds his chest and heads to the gym.",
             "The energy is different after-hours. More relaxed, more real. Chandler actually smiles at one of Jesse's jokes. Andre explains technical concepts without rushing quite so much.",
             "Jesse tries to scare Andre by sneaking up behind him. Andre jumps and nearly spills his Red Bull. Everyone laughs. 'Dude-you-always-do-this!' Andre protests, but he's grinning.",
             "By 8 PM, the work is done. Really done, not just kinda done. You all pack up together.",
@@ -498,23 +498,23 @@ const day3_4_5_scenarios = {
         period: 1,
         periodName: "Morning",
         background: "office_desk",
-        character: "colby",
+        character: "andre",
         characterExpression: "happy",
         text: [
             "Thursday morning! You can feel the 'almost Friday' energy in the office.",
-            "Colby swaggers over to your desk, protein shaker in hand, looking pumped. 'Yo! Morning, bro! Got some news for you.'",
-            "He sets down the shaker and leans in. 'So I've been telling everyone you're crushing it this week. Like, actually doing real work, not just intern busy-work, you know?'",
-            "'And I just got approval to give you your first REAL project.' He grins. 'We're launching a webinar series - like, proper thought leadership content. Educational stuff for customers.'",
-            "'I want you to own the marketing for it. Full campaign - emails, landing page copy, social posts, the whole thing. Think you can handle it, bro?'",
+            "Andre appears at your desk with his usual energy drink and excited energy. 'Okay-so-I-have-news-for-you-and-it's-good-news!'",
+            "He sits down and talks even faster than usual. 'So-I've-been-telling-leadership-you're-doing-great-this-week-and-I-think-you're-ready-for-your-first-REAL-project.'",
+            "'We're-launching-a-webinar-series-thought-leadership-content-for-customers-educational-stuff. I-want-you-to-own-the-marketing-for-it.'",
+            "'Full-campaign-emails-landing-page-copy-social-posts-the-whole-thing. Think-you-can-handle-it?' He grins, genuinely excited to give you this opportunity.",
             "This is it. Your moment to prove yourself."
         ],
         choices: [
             {
                 id: "accept_confident",
-                text: "Hell yeah! I'm ready for this",
+                text: "Absolutely! I'm ready for this",
                 next: "day4_morning_project_brief",
                 effects: {
-                    relationships: { colby: 12 },
+                    relationships: { andre: 12 },
                     badges: ["first_real_project"]
                 }
             },
@@ -523,16 +523,16 @@ const day3_4_5_scenarios = {
                 text: "I'll give it everything I've got. Might have questions though",
                 next: "day4_morning_project_brief",
                 effects: {
-                    relationships: { colby: 8 }
+                    relationships: { andre: 8 }
                 }
             },
             {
-                id: "match_bro_energy",
-                text: "Bro, I'm gonna crush this. Let's go!",
+                id: "match_energy",
+                text: "Yes! I'm so ready for this. Let's do it!",
                 next: "day4_morning_project_hype",
                 effects: {
-                    relationships: { colby: 15 },
-                    badges: ["colby_approved"]
+                    relationships: { andre: 15 },
+                    badges: ["andre_approved"]
                 }
             }
         ]
@@ -543,15 +543,15 @@ const day3_4_5_scenarios = {
         period: 1,
         periodName: "Morning",
         background: "office_desk",
-        character: "colby",
+        character: "andre",
         characterExpression: "happy",
         text: [
-            "Colby's face lights up. 'BRO! That's what I'm talking about! That's the ENERGY!'",
-            "He literally fist-bumps you. 'Dude, I knew you were cool when you started. Some interns are like, too scared to do anything. But you're here to WORK. I respect that.'",
-            "'Okay so here's the deal.' He pulls up a chair, fully engaged now.",
+            "Andre's face lights up with genuine excitement. 'YES! That's-what-I-wanted-to-hear! That's-the-energy-I-love!'",
+            "He takes a breath, slowing down intentionally. 'Look, some interns just want to coast and check boxes. But I can tell you actually care about doing good work. That matters to me.'",
+            "'Okay-so-here's-the-deal.' He pulls up a chair, fully engaged now.",
             "He walks you through the webinar series - topics about expense management best practices, financial operations, ROI tracking. Target audience is finance managers and ops people at mid-size companies.",
-            "'Make it smart but not boring, you know? Like, we're experts but we're also cool. Not some stuffy corporate thing.'",
-            "'I trust you, bro. Make it happen. And if you need anything - design resources, budget for ads, whatever - just ask. This one's important.'"
+            "'Make-it-smart-but-accessible-you-know? We're-experts-but-we're-not-stuffy-corporate-robots. Show-personality.'",
+            "'I-trust-you-on-this. And-if-you-need-anything-design-resources-budget-for-ads-whatever-just-ask. This-one's-important-and-I'm-excited-to-see-what-you-do.'"
         ],
         choices: [
             {
@@ -559,7 +559,7 @@ const day3_4_5_scenarios = {
                 text: "Got it. I'm on it",
                 next: "day4_late_morning_start",
                 effects: {
-                    relationships: { colby: 5 }
+                    relationships: { andre: 5 }
                 }
             }
         ]
@@ -570,14 +570,14 @@ const day3_4_5_scenarios = {
         period: 1,
         periodName: "Morning",
         background: "office_desk",
-        character: "colby",
+        character: "andre",
         characterExpression: "neutral",
         text: [
-            "Colby nods approvingly and pulls up a chair. 'Okay cool, let me give you the rundown.'",
+            "Andre nods and pulls up a chair. 'Okay-cool-let-me-give-you-the-rundown.'",
             "He explains the webinar series - topics, target audience, goals. It's a lot to take in, but he's surprisingly clear about the objectives.",
-            "'We want to position Divvy as the smart choice for finance ops people. Not just a tool - like, a partner who gets their challenges.'",
-            "'You'll work with Ramona for customer insights, Jacob for product positioning, Pat and the design team for visuals. But the messaging? That's all you, bro.'",
-            "He stands up. 'I'm here if you need me. But I trust your judgment. That's why I'm giving you this.'",
+            "'We-want-to-position-Divvy-as-the-smart-choice-for-finance-ops-people. Not-just-a-tool-like-a-partner-who-gets-their-challenges.'",
+            "'You'll-work-with-Ramona-for-customer-insights-Jacob-for-product-positioning-Pat-and-the-design-team-for-visuals. But-the-messaging? That's-all-you.'",
+            "He stands up. 'I'm-here-if-you-need-me. But-I-trust-your-judgment. That's-why-I'm-giving-you-this-opportunity.'",
             "Responsibility feels good. And terrifying. Mostly good."
         ],
         choices: [
@@ -600,7 +600,7 @@ const day3_4_5_scenarios = {
         characterExpression: "neutral",
         text: [
             "You're deep into drafting campaign copy when Jacob walks by with his MacBook Pro and AirPods Max around his neck.",
-            "He notices your screen. 'Oh, the webinar campaign! Colby mentioned you're taking lead on this.'",
+            "He notices your screen. 'Oh, the webinar campaign! Andre mentioned you're taking lead on this.'",
             "He pauses, genuinely interested. 'Mind if I take a look? I can give you a product perspective - make sure the messaging aligns with how we're actually positioning features.'",
             "His tone is helpful, not condescending. Jacob's the kind of person who makes collaboration feel natural."
         ],

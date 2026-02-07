@@ -42,12 +42,12 @@ const slackConversations = {
 
     // Colby conversations
     colby_1_2: {
-        userMessage: "Hey Colby, quick question about the marketing docs",
+        userMessage: "Hey Colby, quick question",
         responses: [
-            { sender: 'colby', text: "Sure, what's up?" },
-            { sender: 'colby', text: "Always happy to help a fellow marketing person!" }
+            { sender: 'colby', text: "Sup bro, what's up?" },
+            { sender: 'colby', text: "Make it quick though, got a deal closing in 10" }
         ],
-        relationshipChange: 5
+        relationshipChange: 3
     },
 
     // Ramona conversations

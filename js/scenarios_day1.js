@@ -152,9 +152,10 @@ const day1_scenarios = {
         characterExpression: "neutral",
         text: [
             "Andre leads you through the open office space, pointing at everything like a hyperactive tour guide.",
-            "'So-this-is-the-main-floor-marketing-sits-here-engineering-over-there-sales-in-the-corner-you'll-learn-who's-who-pretty-quick.'",
-            "He stops at a clean desk with a new laptop, monitor, and some Divvy swag. 'Here's your setup! Colby sits right over there - he's your supervisor. Jacob from product also works with marketing a lot. He's the Apple guy, you'll see.'",
-            "Andre takes a breath and a sip of his energy drink. 'Okay-so-any-questions-before-I-head-back? I-know-there's-a-lot-to-absorb-on-day-one-but-seriously-just-Slack-me-anytime-I'm-here-to-help-that's-literally-my-favorite-thing.'"
+            "'So-this-is-the-main-floor-marketing-and-revenue-ops-sits-here-engineering-over-there-sales-in-the-corner-you'll-learn-who's-who-pretty-quick.'",
+            "He stops at a clean desk with a new laptop, monitor, and some Divvy swag. 'Here's your setup! You'll be working with me, Chandler, and Jesse - we're the revenue ops and marketing team. Chandler's right over there with the headphones.'",
+            "'Jacob-from-product-also-works-with-marketing-a-lot-he's-the-Apple-guy-you'll-see. And-that's-Colby-in-sales-over-there-the-gym-bro-you'll-probably-bump-into-him-occasionally.'",
+            "Andre takes a breath and a sip of his energy drink. 'Okay-so-any-questions-before-I-head-back? I-know-there's-a-lot-to-absorb-on-day-one-but-seriously-just-Slack-me-anytime-I'm-your-manager-so-I'm-here-to-help-that's-literally-my-favorite-thing.'"
         ],
         choices: [
             {
