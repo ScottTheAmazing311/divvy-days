@@ -17,7 +17,7 @@ body {
 .game-container {
     display: grid;
     grid-template-columns: 250px 1fr 250px;
-    grid-template-rows: 60px 1fr;
+    grid-template-rows: 60px 1fr auto;
     height: 100vh;
     gap: 0;
 }
@@ -48,8 +48,6 @@ body {
     background-color: #1a1a2e;
     position: relative;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
 }
 
 .right-sidebar {
@@ -61,20 +59,16 @@ body {
 }
 
 .interaction-area {
-    position: fixed;
-    bottom: 0;
-    left: 250px;
-    right: 250px;
+    grid-column: 2;
+    grid-row: 3;
     background-color: #16213e;
     border-top: 1px solid #1a1a2e;
     display: flex;
     flex-direction: column;
     padding: 15px;
     gap: 10px;
-    z-index: 100;
-    max-height: 70vh;
-    overflow-y: visible;
-    /* Fixed position - always visible at bottom */
+    overflow: visible;
+    /* No height constraints - grow to fit all choices */
 }
 
 /* ===== HEADER STYLES ===== */
@@ -226,9 +220,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    flex-shrink: 0;
-    overflow-y: visible;
-    max-height: none;
+    overflow: visible;
     /* Choice buttons should always be visible without scrolling */
 }
 
@@ -245,27 +237,23 @@ body {
 
 /* ===== SCROLLBAR STYLES ===== */
 .sidebar-content::-webkit-scrollbar,
-.text-box::-webkit-scrollbar,
-.choices-container::-webkit-scrollbar {
+.text-box::-webkit-scrollbar {
     width: 8px;
 }
 
 .sidebar-content::-webkit-scrollbar-track,
-.text-box::-webkit-scrollbar-track,
-.choices-container::-webkit-scrollbar-track {
+.text-box::-webkit-scrollbar-track {
     background: #1a1a2e;
 }
 
 .sidebar-content::-webkit-scrollbar-thumb,
-.text-box::-webkit-scrollbar-thumb,
-.choices-container::-webkit-scrollbar-thumb {
+.text-box::-webkit-scrollbar-thumb {
     background: #533483;
     border-radius: 4px;
 }
 
 .sidebar-content::-webkit-scrollbar-thumb:hover,
-.text-box::-webkit-scrollbar-thumb:hover,
-.choices-container::-webkit-scrollbar-thumb:hover {
+.text-box::-webkit-scrollbar-thumb:hover {
     background: #7c3aed;
 }
 
@@ -275,11 +263,6 @@ body {
 @media (max-width: 1023px) {
     .game-container {
         grid-template-columns: 200px 1fr 200px;
-    }
-
-    .interaction-area {
-        left: 200px;
-        right: 200px;
     }
 
     .character-portrait {
