@@ -2826,7 +2826,11 @@ function getBackgroundName(backgroundId) {
         break_room: "Break Room",
         restaurant: "Break Room",
         seven_eleven: "7-11",
-        gaming_room: "Gaming Room"
+        gaming_room: "Gaming Room",
+        salesfloor: "Sales Floor",
+        sterlingsoffice: "Sterling's Office",
+        woodysoffice: "Woody's Office",
+        gamingroom: "Gaming Room"
     };
     return names[backgroundId] || "Office";
 }
@@ -2857,4 +2861,9 @@ function getBackgroundColor(backgroundId) {
         gaming_room: "#9b59b6"
     };
     return colors[backgroundId] || "#34495e";
+}
+
+// Merge map scenarios if available
+if (typeof map_scenarios !== 'undefined') {
+    Object.assign(scenarios, map_scenarios);
 }

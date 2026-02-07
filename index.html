@@ -23,6 +23,7 @@
                 <span id="period-display">Morning</span>
             </div>
             <div class="header-actions">
+                <button id="map-btn" class="header-btn">🗺️ Map</button>
                 <button id="save-btn" class="header-btn">💾 Save</button>
                 <button id="load-btn" class="header-btn">📁 Load</button>
                 <button id="menu-btn" class="header-btn">☰ Menu</button>
@@ -209,9 +210,27 @@
         </div>
     </div>
 
+    <!-- Office Map Modal -->
+    <div class="modal-overlay" id="map-modal">
+        <div class="modal-content office-map-modal">
+            <div class="modal-header">
+                <h2>🗺️ Office Map</h2>
+                <button class="modal-close" id="map-close">✕</button>
+            </div>
+            <div class="modal-body">
+                <p class="map-description">Navigate to different areas of the office. You might find coworkers to chat with!</p>
+                <div class="office-map-grid" id="office-map-grid">
+                    <!-- Rooms will be populated dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="js/characters.js"></script>
     <script src="js/badges.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/scenarios_map.js"></script>
     <script src="js/scenarios.js"></script>
     <script src="js/endings.js"></script>
     <script src="js/save.js"></script>

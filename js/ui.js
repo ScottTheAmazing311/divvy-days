@@ -481,6 +481,11 @@ document.addEventListener('DOMContentLoaded', () => {
         uiRenderer.showMenu();
     });
 
+    document.getElementById('map-btn').addEventListener('click', () => {
+        const currentSceneId = window.gameEngine.state.currentSceneId;
+        showOfficeMap(window.gameEngine.state, currentSceneId);
+    });
+
     // Set up menu buttons
     document.getElementById('new-game-btn').addEventListener('click', () => {
         if (confirm('Start a new game? Current progress will be lost.')) {
