@@ -1289,7 +1289,7 @@ const scenarios = {
             {
                 id: "continue_after_drama",
                 text: "Head back to your desk",
-                next: "day3_afternoon_start",
+                next: "day3_scott_encounter",
                 effects: {
                     relationships: { jacob: -3, pat: -3 }
                 }
@@ -1313,7 +1313,7 @@ const scenarios = {
             {
                 id: "continue_to_lunch",
                 text: "Check the time - almost lunch",
-                next: "day3_afternoon_start",
+                next: "day3_scott_encounter",
                 effects: {}
             }
         ]
@@ -1335,8 +1335,52 @@ const scenarios = {
             {
                 id: "continue_to_lunch",
                 text: "Get back to work until lunch",
-                next: "day3_afternoon_start",
+                next: "day3_scott_encounter",
                 effects: {}
+            }
+        ]
+    },
+
+    // ===== DAY 3: SCOTT ENCOUNTER =====
+    day3_scott_encounter: {
+        day: 3,
+        period: 2,
+        periodName: "Late Morning",
+        background: "office_desk",
+        character: "scott",
+        characterExpression: "happy",
+        text: [
+            "You're heading to the break room when you hear: 'ATTENTION DIVVY EMPLOYEES! THIS IS YOUR SALES ENABLEMENT OVERLORD SPEAKING!'",
+            "Scott is standing on a chair in the middle of the office with a rolled-up paper as a makeshift megaphone. Several people are trying not to laugh.",
+            "'I am here to announce that... THE COFFEE IN THE BREAK ROOM HAS BEEN UPGRADED!' He does a little bow. 'You're welcome for my service.'",
+            "Andre walks by shaking his head but smiling. 'Scott-that's-not-how-announcements-work-we-have-Slack-for-that.'",
+            "'But Andre, where's the DRAMA? Where's the PIZZAZZ?' Scott hops down from the chair and notices you. 'Oh hey! You're the new marketing intern! I'm Scott, Head of Sales Enablement. I make sales not suck.'",
+            "He extends his hand for a very enthusiastic handshake. 'Fair warning: I'm like this all the time. Welcome to the chaos!'"
+        ],
+        choices: [
+            {
+                id: "match_energy",
+                text: "I love the energy! This place is fun",
+                next: "day3_afternoon_start",
+                effects: {
+                    relationships: { scott: 10 }
+                }
+            },
+            {
+                id: "laugh_politely",
+                text: "Haha, nice to meet you Scott",
+                next: "day3_afternoon_start",
+                effects: {
+                    relationships: { scott: 5 }
+                }
+            },
+            {
+                id: "stay_professional",
+                text: "Nice to meet you. I should get back to work",
+                next: "day3_afternoon_start",
+                effects: {
+                    relationships: { scott: 2 }
+                }
             }
         ]
     },
@@ -2271,9 +2315,9 @@ const scenarios = {
             "The office goes quiet as everyone reads.",
             "'Team - After thoughtful consideration and input from many of you, we're officially moving forward with the enterprise pivot. This was not an easy decision, and I want to acknowledge that not everyone agrees with it. That's okay. Diverse perspectives make us stronger.'",
             "'Starting next week, we'll begin restructuring product roadmap and go-to-market strategy. There will be changes - some team reorganization, new roles, evolved priorities. This will be an adjustment period.'",
-            "'I value transparency, so here's my ask: If you have concerns, talk to me or Harper directly. If you have ideas for how to make this transition successful, I want to hear them. If you fundamentally can't get behind this direction... I'll understand.'",
+            "'I value transparency, so here's my ask: If you have concerns, come talk to me directly. If you have ideas for how to make this transition successful, I want to hear them. If you fundamentally can't get behind this direction... I'll understand.'",
             "'Thank you to everyone who contributed to this conversation. Especially those who disagreed with me - that takes courage. Let's build something great together. - Blake'",
-            "You watch reactions around the office. Pat (blake) reads it with his usual sarcastic expression, mutters something that sounds like 'finally made a damn decision.' Jacob (jordan) looks thoughtful, maybe a little resigned. Andre is already planning something, typing frantically."
+            "You watch reactions around the office. Pat reads it with his usual sarcastic expression, mutters something that sounds like 'finally made a damn decision.' Jacob looks thoughtful, maybe a little resigned. Andre is already planning something, typing frantically."
         ],
         choices: [
             {
@@ -2370,7 +2414,7 @@ const scenarios = {
         text: [
             "Lunch time on Friday. The pivot announcement has settled into background noise - people are already moving forward.",
             "Ramona stops by your desk with her usual warmth. 'Hey! Want to grab lunch? It's your last day of week one - we should celebrate!'",
-            "Behind her, you see Pat (blake) organizing something with Casper (tones) and Chandler (woody). They might be planning a group lunch.",
+            "Behind her, you see Pat organizing something with Casper and Chandler. They might be planning a group lunch.",
             "Decisions, decisions."
         ],
         choices: [

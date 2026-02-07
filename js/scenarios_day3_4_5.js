@@ -1213,7 +1213,7 @@ const day3_4_5_scenarios = {
             "'Starting next week, we'll begin restructuring product roadmap and go-to-market strategy. There will be changes - some team reorganization, new roles, evolved priorities. This will be an adjustment period.'",
             "'I value transparency, so here's my ask: If you have concerns, come talk to me directly. If you have ideas for how to make this transition successful, I want to hear them. If you fundamentally can't get behind this direction... I'll understand.'",
             "'Thank you to everyone who contributed to this conversation. Especially those who disagreed with me - that takes courage. Let's build something great together. - Blake'",
-            "You watch reactions around the office. Pat (blake) reads it with his usual sarcastic expression, mutters something that sounds like 'finally made a damn decision.' Jacob (jordan) looks thoughtful, maybe a little resigned. Andre is already planning something, typing frantically."
+            "You watch reactions around the office. Pat reads it with his usual sarcastic expression, mutters something that sounds like 'finally made a damn decision.' Jacob looks thoughtful, maybe a little resigned. Andre is already planning something, typing frantically."
         ],
         choices: [
             {
@@ -1310,7 +1310,7 @@ const day3_4_5_scenarios = {
         text: [
             "Lunch time on Friday. The pivot announcement has settled into background noise - people are already moving forward.",
             "Ramona stops by your desk with her usual warmth. 'Hey! Want to grab lunch? It's your last day of week one - we should celebrate!'",
-            "Behind her, you see Pat (blake) organizing something with Casper (tones) and Chandler (woody). They might be planning a group lunch.",
+            "Behind her, you see Pat organizing something with Casper and Chandler. They might be planning a group lunch.",
             "Decisions, decisions."
         ],
         choices: [
