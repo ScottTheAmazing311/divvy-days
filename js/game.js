@@ -168,7 +168,7 @@ class GameEngine {
     }
 
     // Open Slack modal
-    openSlackModal(nextSceneId) {
+    openSlackModal(nextSceneId = null) {
         const modal = document.getElementById('slack-modal');
         const characterSelect = document.getElementById('slack-character-select');
         const conversation = document.getElementById('slack-conversation');
@@ -198,6 +198,7 @@ class GameEngine {
 
                 const available = canSlackCharacter(char.id, this.state);
                 const status = getRelationshipStatus(char.id, this.state.relationships[char.id].score);
+                const relationship = this.state.relationships[char.id];
 
                 const btn = document.createElement('button');
                 btn.className = 'slack-character-btn';
@@ -226,7 +227,15 @@ class GameEngine {
 
                 const statusDiv = document.createElement('div');
                 statusDiv.className = 'slack-character-status';
-                statusDiv.textContent = status;
+                // Show slack preference hint
+                const slackPref = char.slackPreference || 0;
+                if (slackPref > 5) {
+                    statusDiv.textContent = `${status} ❤️`;
+                } else if (slackPref < 0) {
+                    statusDiv.textContent = `${status} 💀`;
+                } else {
+                    statusDiv.textContent = status;
+                }
 
                 btn.appendChild(portrait);
                 btn.appendChild(name);
@@ -251,7 +260,7 @@ class GameEngine {
     }
 
     // Send Slack message to character
-    sendSlackMessage(characterId, nextSceneId) {
+    sendSlackMessage(characterId, nextSceneId = null) {
         const characterSelect = document.getElementById('slack-character-select');
         const conversation = document.getElementById('slack-conversation');
         const messagesContainer = document.getElementById('slack-messages');
@@ -307,17 +316,27 @@ class GameEngine {
             delay += 1500;
         });
 
+        // Use character's slack preference for relationship change
+        const char = characters[characterId];
+        const slackPref = char.slackPreference || convo.relationshipChange;
+
         // Apply relationship change
         if (this.state.relationships[characterId]) {
-            this.state.relationships[characterId].score += convo.relationshipChange;
+            this.state.relationships[characterId].score += slackPref;
         }
 
         this.state.slackMessagesUsed++;
 
+        // Update UI after relationship change
+        window.uiRenderer.updateRelationships(this.state);
+
         // Set up continue button
         document.getElementById('slack-continue').onclick = () => {
             document.getElementById('slack-modal').classList.remove('active');
-            this.goToScene(nextSceneId);
+            // If nextSceneId provided, go to that scene; otherwise just close
+            if (nextSceneId) {
+                this.goToScene(nextSceneId);
+            }
         };
     }
 

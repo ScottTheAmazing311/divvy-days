@@ -55,13 +55,6 @@ const day2_scenarios = {
                 effects: {}
             },
             {
-                id: "slack_someone",
-                text: "📱 Slack a coworker",
-                type: "slack",
-                next: "day2_late_morning_start",
-                effects: {}
-            },
-            {
                 id: "coffee_break",
                 text: "Grab coffee in the break room",
                 next: "day2_morning_coffee",
@@ -279,13 +272,6 @@ const day2_scenarios = {
                 effects: {
                     relationships: { casper: -3 }
                 }
-            },
-            {
-                id: "slack_instead",
-                text: "📱 Slack someone else for lunch plans",
-                type: "slack",
-                next: "day2_afternoon_after_slack",
-                effects: {}
             }
         ]
     },

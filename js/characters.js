@@ -14,6 +14,7 @@ const characters = {
         likes: ['When people ask questions', 'Honesty', 'Tech discussions'],
         dislikes: ['Office politics', 'Being interrupted mid-thought'],
         quirk: 'Always drinking energy drinks, explains things like a tutorial',
+        slackPreference: 5, // Likes being accessible as your manager
         thresholds: {
             attempting: 40,
             talkingStage: 20,
@@ -35,6 +36,7 @@ const characters = {
         likes: ['Apple', 'Design', 'Fashion', 'LGBTQ'],
         dislikes: ['Disrespect', 'Loud sales guys', 'Slackers'],
         quirk: 'Apple enthusiast, always has the latest MacBook',
+        slackPreference: 3, // Polite but prefers focus time
         thresholds: {
             attempting: 40,
             talkingStage: 20,
@@ -56,6 +58,7 @@ const characters = {
         likes: ['Kanye West', 'Golf', 'Music', 'Traveling'],
         dislikes: ['Losing at video games', 'New people trying too hard'],
         quirk: 'Always has headphones in, will talk to you when he wants to',
+        slackPreference: -4, // Dislikes interruptions, only talks when HE wants
         thresholds: {
             attempting: 50,
             talkingStage: 30,
@@ -77,6 +80,7 @@ const characters = {
         likes: ['Wim Hof', 'Creating music', 'Scaring Andre', 'Good food'],
         dislikes: ['Taking things too seriously'],
         quirk: 'Always has a twinkle in his eye, pranks Andre constantly',
+        slackPreference: 7, // Loves chatting and joking around
         thresholds: {
             attempting: 40,
             talkingStage: 20,
@@ -98,6 +102,7 @@ const characters = {
         likes: ['Working out', 'Making money', 'Being buff', 'Respect when earned'],
         dislikes: ['Nerds', 'Weak people', 'The marketing team', 'Being challenged'],
         quirk: 'Flexes constantly, drinks protein shakes, calls everyone "bro"',
+        slackPreference: -8, // Hates being interrupted during deals
         thresholds: {
             attempting: 50,
             talkingStage: 30,
@@ -119,6 +124,7 @@ const characters = {
         likes: ['When people ask questions', 'Bringing people into the group'],
         dislikes: ['People being rude', 'Exclusion'],
         quirk: 'Always welcoming, bridge between you and the friend group',
+        slackPreference: 8, // Loves helping and connecting
         thresholds: {
             attempting: 40,
             talkingStage: 20,
@@ -140,6 +146,7 @@ const characters = {
         likes: ['When people ask questions', 'Honesty', 'The crew'],
         dislikes: ['Being talked down to', 'Fake people'],
         quirk: 'Always supportive, Andre\'s close friend',
+        slackPreference: 7, // Helpful and supportive
         thresholds: {
             attempting: 40,
             talkingStage: 20,
@@ -161,6 +168,7 @@ const characters = {
         likes: ['Playing games', 'Being normal', 'Having fun', 'Well designed things'],
         dislikes: ['Try-hards', 'Bad design', 'Fake people'],
         quirk: 'Sarcastic humor, roasts people affectionately',
+        slackPreference: 2, // Neutral, might roast you for slacking
         thresholds: {
             attempting: 45,
             talkingStage: 25,
@@ -182,6 +190,7 @@ const characters = {
         likes: ['Pranks', 'Making people laugh', 'Rolling chairs', 'Silly voices', 'The crew'],
         dislikes: ['Boring meetings', 'People who are too serious', 'Awkward silence'],
         quirk: 'Always doing something silly - riding chairs, funny voices, dramatic gestures',
+        slackPreference: 8, // Loves goofing around and chatting
         thresholds: {
             attempting: 40,
             talkingStage: 20,

@@ -213,15 +213,6 @@ const day1_scenarios = {
                 effects: {
                     relationships: { jacob: -2 }
                 }
-            },
-            {
-                id: "slack_option",
-                text: "📱 Slack a coworker",
-                type: "slack",
-                next: "day1_late_morning_after_slack",
-                effects: {
-                    badges: ["first_slack_message"]
-                }
             }
         ]
     },

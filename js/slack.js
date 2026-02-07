@@ -40,35 +40,38 @@ const slackConversations = {
         relationshipChange: 5
     },
 
-    // Colby conversations
-    colby_1_2: {
-        userMessage: "Hey Colby, quick question",
+    // Colby conversations - HATES being Slacked
+    colby_default: {
+        userMessage: "Hey Colby, got a sec?",
         responses: [
-            { sender: 'colby', text: "Sup bro, what's up?" },
-            { sender: 'colby', text: "Make it quick though, got a deal closing in 10" }
+            { sender: 'colby', text: "Bro I'm literally on a call right now" },
+            { sender: 'colby', text: "Don't slack me unless it's an emergency" },
+            { sender: 'colby', text: "I'm trying to close deals here 💪" }
         ],
-        relationshipChange: 3
+        relationshipChange: -8
     },
 
-    // Ramona conversations
-    ramona_1_2: {
-        userMessage: "Hey Ramona, love your design work!",
+    // Ramona conversations - LOVES being Slacked
+    ramona_default: {
+        userMessage: "Hey Ramona! How's it going?",
         responses: [
-            { sender: 'ramona', text: "Aww thanks! That's so sweet 😊" },
-            { sender: 'ramona', text: "Let me know if you ever want to chat about design stuff!" }
+            { sender: 'ramona', text: "Hey!! So glad you reached out! 😊" },
+            { sender: 'ramona', text: "I'm doing great! How are you settling in?" },
+            { sender: 'ramona', text: "Let me know if you ever want to grab coffee and chat!" }
         ],
-        relationshipChange: 5
+        relationshipChange: 8
     },
 
-    // Scott conversations
-    scott_1_2: {
-        userMessage: "Hey Scott! What's the sales team up to?",
+    // Scott conversations - LOVES being Slacked
+    scott_default: {
+        userMessage: "Hey Scott! What's up?",
         responses: [
-            { sender: 'scott', text: "Oh you know, just CRUSHING IT 💪" },
-            { sender: 'scott', text: "jk we're mostly just drinking coffee and making cold calls" },
-            { sender: 'scott', text: "Want to hear my best sales pitch? 'HEY YOU NEED DIVVY OR YOUR EXPENSES WILL BE SAD' 😂" }
+            { sender: 'scott', text: "YOOO what's good! 🎉" },
+            { sender: 'scott', text: "Just goofing around as usual" },
+            { sender: 'scott', text: "Want to hear my terrible sales pitch of the day? 😂" },
+            { sender: 'scott', text: "Actually never mind, you probably have work to do lol" }
         ],
-        relationshipChange: 7
+        relationshipChange: 8
     },
 
     // Woody conversations
@@ -111,6 +114,70 @@ const slackConversations = {
         relationshipChange: 7
     },
 
+    // Chandler conversations - DISLIKES being Slacked
+    chandler_default: {
+        userMessage: "Hey Chandler, what are you working on?",
+        responses: [
+            { sender: 'chandler', text: "..." },
+            { sender: 'chandler', text: "Headphones were in for a reason" },
+            { sender: 'chandler', text: "I'll talk when I want to talk" }
+        ],
+        relationshipChange: -4
+    },
+
+    // Casper conversations - LOVES being Slacked
+    casper_default: {
+        userMessage: "Hey Casper! How's it going?",
+        responses: [
+            { sender: 'casper', text: "Hey! Doing great, thanks for checking in!" },
+            { sender: 'casper', text: "How's your day going? Need any help with anything?" },
+            { sender: 'casper', text: "Always here if you want to chat or grab lunch!" }
+        ],
+        relationshipChange: 7
+    },
+
+    // Jesse conversations - LOVES being Slacked
+    jesse_default: {
+        userMessage: "Hey Jesse! You around?",
+        responses: [
+            { sender: 'jesse', text: "Yo! What's good? 😄" },
+            { sender: 'jesse', text: "Just finished scaring Andre lol" },
+            { sender: 'jesse', text: "Want to hear my new music idea? It's wild" }
+        ],
+        relationshipChange: 7
+    },
+
+    // Pat conversations - NEUTRAL
+    pat_default: {
+        userMessage: "Hey Pat, got a sec?",
+        responses: [
+            { sender: 'pat', text: "Slacking me during work hours?" },
+            { sender: 'pat', text: "Bold move. What's up?" }
+        ],
+        relationshipChange: 2
+    },
+
+    // Jacob conversations - NEUTRAL
+    jacob_default: {
+        userMessage: "Hey Jacob, how's it going?",
+        responses: [
+            { sender: 'jacob', text: "Hey! Going well, thanks" },
+            { sender: 'jacob', text: "Just working through some product specs" }
+        ],
+        relationshipChange: 3
+    },
+
+    // Andre conversations - LIKES
+    andre_default: {
+        userMessage: "Hey Andre, got a minute?",
+        responses: [
+            { sender: 'andre', text: "Sure-what's-up!" },
+            { sender: 'andre', text: "Always-got-time-for-my-team" },
+            { sender: 'andre', text: "What-can-I-help-with?" }
+        ],
+        relationshipChange: 5
+    },
+
     // Default/generic conversations
     default_positive: {
         userMessage: "Hey, how's it going?",
@@ -134,12 +201,18 @@ const slackConversations = {
 function getSlackConversation(characterId, day, period) {
     const conversationKey = `${characterId}_${day}_${period}`;
 
-    // Try specific conversation first
+    // Try specific conversation first (time-based)
     if (slackConversations[conversationKey]) {
         return slackConversations[conversationKey];
     }
 
-    // Fall back to default positive
+    // Try character-specific default
+    const characterDefault = `${characterId}_default`;
+    if (slackConversations[characterDefault]) {
+        return slackConversations[characterDefault];
+    }
+
+    // Fall back to generic default positive
     const defaultConv = { ...slackConversations.default_positive };
     defaultConv.responses = defaultConv.responses.map(r => ({
         ...r,

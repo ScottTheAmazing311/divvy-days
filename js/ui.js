@@ -486,6 +486,10 @@ document.addEventListener('DOMContentLoaded', () => {
         showOfficeMap(window.gameEngine.state, currentSceneId);
     });
 
+    document.getElementById('slack-btn').addEventListener('click', () => {
+        window.gameEngine.openSlackModal();
+    });
+
     // Set up menu buttons
     document.getElementById('new-game-btn').addEventListener('click', () => {
         if (confirm('Start a new game? Current progress will be lost.')) {

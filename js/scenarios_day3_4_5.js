@@ -155,13 +155,6 @@ const day3_4_5_scenarios = {
                 effects: {
                     badges: ["drama_avoider"]
                 }
-            },
-            {
-                id: "slack_about_drama",
-                text: "📱 Slack someone to see what's going on",
-                type: "slack",
-                next: "day3_late_morning_after_slack",
-                effects: {}
             }
         ]
     },
@@ -313,15 +306,6 @@ const day3_4_5_scenarios = {
                     relationships: { ramona: -3 }
                 }
             },
-            {
-                id: "slack_other_lunch",
-                text: "📱 Slack someone else for lunch plans",
-                type: "slack",
-                next: "day3_afternoon_after_slack",
-                effects: {
-                    relationships: { ramona: -5 }
-                }
-            }
         ]
     },
 
@@ -1119,13 +1103,6 @@ const day3_4_5_scenarios = {
                 effects: {
                     badges: ["self_aware"]
                 }
-            },
-            {
-                id: "slack_someone_friday",
-                text: "📱 Slack someone to chat about the week",
-                type: "slack",
-                next: "day5_morning_after_slack",
-                effects: {}
             }
         ]
     },

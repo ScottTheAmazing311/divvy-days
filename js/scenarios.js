@@ -210,15 +210,6 @@ const scenarios = {
                 effects: {
                     relationships: { jacob: -2 }
                 }
-            },
-            {
-                id: "slack_option",
-                text: "📱 Slack a coworker",
-                type: "slack",
-                next: "day1_late_morning_after_slack",
-                effects: {
-                    badges: ["first_slack_message"]
-                }
             }
         ]
     },
@@ -732,13 +723,6 @@ const scenarios = {
                 effects: {}
             },
             {
-                id: "slack_someone",
-                text: "📱 Slack a coworker",
-                type: "slack",
-                next: "day2_late_morning_start",
-                effects: {}
-            },
-            {
                 id: "coffee_break",
                 text: "Grab coffee in the break room",
                 next: "day2_morning_coffee",
@@ -956,13 +940,6 @@ const scenarios = {
                 effects: {
                     relationships: { casper: -3 }
                 }
-            },
-            {
-                id: "slack_instead",
-                text: "📱 Slack someone else for lunch plans",
-                type: "slack",
-                next: "day2_afternoon_after_slack",
-                effects: {}
             }
         ]
     },
@@ -1259,13 +1236,6 @@ const scenarios = {
                 effects: {
                     badges: ["drama_avoider"]
                 }
-            },
-            {
-                id: "slack_about_drama",
-                text: "📱 Slack someone to see what's going on",
-                type: "slack",
-                next: "day3_late_morning_after_slack",
-                effects: {}
             }
         ]
     },
@@ -1415,15 +1385,6 @@ const scenarios = {
                 next: "day3_afternoon_work_lunch",
                 effects: {
                     relationships: { ramona: -3 }
-                }
-            },
-            {
-                id: "slack_other_lunch",
-                text: "📱 Slack someone else for lunch plans",
-                type: "slack",
-                next: "day3_afternoon_after_slack",
-                effects: {
-                    relationships: { ramona: -5 }
                 }
             }
         ]
@@ -2223,13 +2184,6 @@ const scenarios = {
                 effects: {
                     badges: ["self_aware"]
                 }
-            },
-            {
-                id: "slack_someone_friday",
-                text: "📱 Slack someone to chat about the week",
-                type: "slack",
-                next: "day5_morning_after_slack",
-                effects: {}
             }
         ]
     },
