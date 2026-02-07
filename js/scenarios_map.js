@@ -303,7 +303,7 @@ const map_scenarios = {
         ]
     },
 
-    // Return to work after map exploration
+    // Return to work after map exploration (fallback - should be updated dynamically)
     map_return: {
         background: "office_desk",
         character: null,
@@ -315,7 +315,7 @@ const map_scenarios = {
             {
                 id: "back_to_story",
                 text: "Continue",
-                next: "return_from_map",
+                next: "day1_morning_start", // Safe fallback
                 effects: {}
             }
         ]

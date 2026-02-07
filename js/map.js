@@ -140,8 +140,8 @@ const locationEncounters = {
 
 // Check if a location has someone in it at the current time
 function getLocationOccupant(locationId, gameState) {
-    const day = gameState.day;
-    const period = gameState.period;
+    const day = gameState.currentDay;
+    const period = gameState.currentPeriod;
 
     // Find matching encounter
     for (const encounterKey in locationEncounters) {
@@ -230,14 +230,19 @@ function showOfficeMap(gameState, returnSceneId) {
 
 // Navigate to a location
 function navigateToLocation(location, occupant, gameState, returnSceneId) {
-    // Store return point
+    // Store return point in game state
     gameState.mapReturnScene = returnSceneId;
 
     if (occupant && occupant.scenarioId) {
         // There's someone here - go to their scenario
-        // Update map_return scenario to go back to the right place
-        if (map_scenarios.map_return) {
-            map_scenarios.map_return.choices[0].next = returnSceneId;
+        // Update ALL choices in the encounter to return to the right place
+        const encounterScene = map_scenarios[occupant.scenarioId];
+        if (encounterScene && encounterScene.choices) {
+            encounterScene.choices.forEach(choice => {
+                if (choice.next === 'map_return') {
+                    choice.next = returnSceneId;
+                }
+            });
         }
         window.gameEngine.goToScene(occupant.scenarioId);
     } else {
@@ -255,20 +260,13 @@ function showEmptyRoom(location, returnSceneId) {
         text: [
             `You walk into ${location.name}.`,
             location.description,
-            "There's nobody here right now. Just the quiet hum of the office.",
-            "You could explore more or head back to work."
+            "There's nobody here right now. Just the quiet hum of the office."
         ],
         choices: [
             {
                 id: 'back_to_work',
                 text: 'Head back to your desk',
                 next: returnSceneId,
-                effects: {}
-            },
-            {
-                id: 'open_map_again',
-                text: '🗺️ Check the map again',
-                next: 'open_map',
                 effects: {}
             }
         ]
