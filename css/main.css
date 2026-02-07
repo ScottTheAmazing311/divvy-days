@@ -17,7 +17,7 @@ body {
 .game-container {
     display: grid;
     grid-template-columns: 250px 1fr 250px;
-    grid-template-rows: 60px 1fr auto;
+    grid-template-rows: 60px auto 1fr auto;
     height: 100vh;
     gap: 0;
 }
@@ -36,7 +36,7 @@ body {
 
 .left-sidebar {
     grid-column: 1;
-    grid-row: 2 / 4;
+    grid-row: 2 / 5;
     background-color: #0f3460;
     border-right: 1px solid #1a1a2e;
     overflow-y: auto;
@@ -44,7 +44,7 @@ body {
 
 .scene-container {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 3;
     background-color: #1a1a2e;
     position: relative;
     overflow: hidden;
@@ -52,23 +52,14 @@ body {
 
 .right-sidebar {
     grid-column: 3;
-    grid-row: 2 / 4;
+    grid-row: 2 / 5;
     background-color: #0f3460;
     border-left: 1px solid #1a1a2e;
     overflow-y: auto;
 }
 
 .interaction-area {
-    grid-column: 2;
-    grid-row: 3;
-    background-color: #16213e;
-    border-top: 1px solid #1a1a2e;
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    gap: 10px;
-    overflow: visible;
-    /* No height constraints - grow to fit all choices */
+    display: contents;
 }
 
 /* ===== HEADER STYLES ===== */
@@ -196,14 +187,16 @@ body {
 
 /* ===== TEXT BOX & CHOICES ===== */
 .text-box {
+    grid-column: 2;
+    grid-row: 2;
     background-color: #0f3460;
     border: 2px solid #533483;
     border-radius: 8px;
     padding: 15px;
+    margin: 10px 15px;
     max-height: 120px;
     overflow-y: auto;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    flex-shrink: 1;
 }
 
 .text-content {
@@ -217,11 +210,14 @@ body {
 }
 
 .choices-container {
+    grid-column: 2;
+    grid-row: 4;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    overflow: visible;
-    /* Choice buttons should always be visible without scrolling */
+    padding: 15px;
+    background-color: #16213e;
+    border-top: 1px solid #1a1a2e;
 }
 
 /* ===== TRANSITIONS ===== */
