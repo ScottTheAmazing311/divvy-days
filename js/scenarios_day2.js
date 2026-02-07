@@ -267,7 +267,7 @@ const day2_scenarios = {
             {
                 id: "join_tones",
                 text: "Sure, that would be great!",
-                next: "day2_afternoon_lunch_tones",
+                next: "day2_afternoon_lunch_casper",
                 effects: {
                     relationships: { casper: 10 }
                 }
