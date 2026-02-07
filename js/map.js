@@ -225,6 +225,11 @@ function showOfficeMap(gameState, returnSceneId) {
         mapGrid.appendChild(roomBtn);
     }
 
+    // Set up close button
+    document.getElementById('map-close').onclick = () => {
+        modal.classList.remove('active');
+    };
+
     modal.classList.add('active');
 }
 
