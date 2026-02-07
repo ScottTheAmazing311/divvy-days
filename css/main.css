@@ -17,7 +17,7 @@ body {
 .game-container {
     display: grid;
     grid-template-columns: 250px 1fr 250px;
-    grid-template-rows: 60px 1fr 350px;
+    grid-template-rows: 60px 1fr 480px;
     height: 100vh;
     gap: 0;
 }
@@ -216,8 +216,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    max-height: 120px;
-    overflow-y: auto;
+    /* Choice buttons should always be visible without scrolling */
 }
 
 /* ===== TRANSITIONS ===== */
@@ -281,7 +280,7 @@ body {
 @media (max-width: 767px) {
     .game-container {
         grid-template-columns: 1fr;
-        grid-template-rows: 60px 1fr 300px;
+        grid-template-rows: 60px 1fr 380px;
     }
 
     .left-sidebar,
