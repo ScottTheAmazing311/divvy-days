@@ -392,8 +392,6 @@ body {
 /* ===== CHOICE BUTTONS PERSONA 5 STYLE ===== */
 .choices-container {
     gap: 15px;
-    max-height: 120px;
-    overflow-y: auto;
 }
 
 .btn-choice {
