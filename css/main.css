@@ -67,6 +67,7 @@ body {
     flex-direction: column;
     gap: 10px;
     padding: 15px;
+    padding-left: 0;
     z-index: 10;
 }
 
@@ -165,13 +166,13 @@ body {
 
 .character-portrait {
     position: absolute;
-    top: 50%;
+    bottom: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     width: 450px;
     height: 650px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     transition: opacity 0.3s ease;
 }
@@ -200,6 +201,7 @@ body {
     border: 2px solid #533483;
     border-radius: 8px;
     padding: 15px;
+    margin-left: 15px;
     max-height: 120px;
     overflow-y: auto;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -219,6 +221,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-left: 15px;
 }
 
 /* ===== TRANSITIONS ===== */
