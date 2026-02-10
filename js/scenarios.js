@@ -8,8 +8,8 @@ const scenarios = {
         character: null,
         characterExpression: null,
         text: [
-            "Your first day as a marketing intern at Divvy, an expense management startup in San Francisco.",
-            "You step into the sleek office lobby, stomach fluttering with first-day nerves. The space is modern - exposed brick, plants everywhere, a neon 'Divvy' sign on the wall.",
+            "Your first day as a marketing intern at Divvy, an expense management startup in Utah.",
+            "You step into the sleek office lobby, stomach fluttering with first-day nerves. The space is modern - exposed brick, plants everywhere, a neon 'Divvy' sign on the wall. Through the windows you can see the mountains in the distance.",
             "Near the elevators, you spot Andre from your interview, talking animatedly with Ramona and Colby. Andre's gesturing rapidly with an energy drink in one hand, speaking at lightning speed.",
             "They're deep in conversation and haven't noticed you yet."
         ],
@@ -164,18 +164,20 @@ const scenarios = {
                 }
             },
             {
+                id: "ask_about_team",
+                text: "Tell me more about the team I'll be working with",
+                next: "day1_late_morning_start",
+                effects: {
+                    relationships: { andre: 7 }
+                }
+            },
+            {
                 id: "ask_about_lunch",
-                text: "Where do people usually eat lunch?",
+                text: "Where do people usually grab lunch around here?",
                 next: "day1_late_morning_start",
                 effects: {
                     relationships: { andre: 3 }
                 }
-            },
-            {
-                id: "no_questions",
-                text: "I think I'm good, thanks!",
-                next: "day1_late_morning_start",
-                effects: {}
             }
         ]
     },
@@ -197,18 +199,18 @@ const scenarios = {
         choices: [
             {
                 id: "chat_with_jordan",
-                text: "Sure, I'd love that!",
+                text: "Sure, I'd love the full tour!",
                 next: "day1_late_morning_jordan_chat",
                 effects: {
                     relationships: { jacob: 8 }
                 }
             },
             {
-                id: "keep_working",
-                text: "I should probably keep working on setup...",
-                next: "day1_late_morning_work",
+                id: "quick_rundown",
+                text: "Maybe just a quick rundown? I've got a lot of setup left",
+                next: "day1_late_morning_quick_chat",
                 effects: {
-                    relationships: { jacob: -2 }
+                    relationships: { jacob: 3 }
                 }
             }
         ]
@@ -284,21 +286,24 @@ const scenarios = {
         ]
     },
 
-    day1_late_morning_work: {
+    day1_late_morning_quick_chat: {
         day: 1,
         period: 2,
         periodName: "Late Morning",
-        background: "office_desk",
-        character: null,
+        background: "break_room",
+        character: "jacob",
+        characterExpression: "neutral",
         text: [
-            "Jacob nods understandingly. 'No worries, there's a lot to get through. My door's always open - well, I don't have a door, but you know what I mean.'",
-            "You continue working through the onboarding materials. Company policies, expense procedures, product documentation - pretty dry stuff.",
-            "Around the office, you notice other people chatting, taking breaks, even playing ping-pong. But you stay focused."
+            "Jacob walks with you to the break room and gives you the condensed version while making coffee.",
+            "'Okay, quick version: Andre runs marketing and ops - he's your boss. Colby's technically in sales but helps with marketing content. Chandler's the other marketing intern - a bit competitive but talented.'",
+            "'Jesse does marketing ops and loves pranks. Casper and Pat are Andre's close friends. Ramona is super welcoming.'",
+            "He hands you a coffee. 'That should get you started. We can do a deeper dive another time if you want.'",
+            "Short and efficient - very Jacob."
         ],
         choices: [
             {
-                id: "continue_working",
-                text: "Keep working until lunch",
+                id: "continue_to_lunch",
+                text: "Thanks, that helps!",
                 next: "day1_afternoon_start",
                 effects: {}
             }
@@ -2614,8 +2619,8 @@ const scenarios = {
         character: "andre",
         characterExpression: "happy",
         text: [
-            "5:30 PM. The crew heads out together - about ten people total, laughing and chatting as you walk down the San Francisco street.",
-            "The 7-11 is three blocks away. The late afternoon sun is perfect, the city energy is buzzing, and you're part of this.",
+            "5:30 PM. The crew heads out together - about ten people total, laughing and chatting as you walk down the street. The mountains are glowing in the late afternoon sun.",
+            "The 7-11 is three blocks away. The air is crisp and fresh, and you're part of this.",
             "Inside, everyone scatters to different aisles. Jesse gets a blue raspberry slurpee. Andre gets another Red Bull ('I-know-I-know-but-it's-Friday'). Chandler gets sour gummy worms. Colby debates between protein bars and actually fun snacks.",
             "Ramona gets a cherry slurpee and offers you a sip. 'Try it! Best one.'",
             "Pat grabs beef jerky and makes a sarcastic comment about 'peak nutrition.' Casper is supportive of everyone's choices. Jacob gets sparkling water because of course he does.",
