@@ -91,6 +91,16 @@ class GameEngine {
             return;
         }
 
+        // Check for day transition
+        const previousDay = this.state.currentDay;
+        const newDay = scene.day;
+
+        if (newDay > previousDay && previousDay > 0) {
+            // Day transition detected - show modal
+            await this.showDayTransition(previousDay, newDay, sceneId);
+            return; // Don't continue - modal will handle the transition
+        }
+
         // Update state
         this.state.currentSceneId = sceneId;
         this.state.currentDay = scene.day;
@@ -107,6 +117,34 @@ class GameEngine {
 
         // Auto-save
         autoSave(this.state);
+    }
+
+    // Show day transition modal
+    showDayTransition(previousDay, newDay, nextSceneId) {
+        return new Promise((resolve) => {
+            const modal = document.getElementById('day-transition-modal');
+            const text = document.getElementById('day-transition-text');
+            const button = document.getElementById('day-transition-continue');
+
+            // Set text
+            text.innerHTML = `End of Day ${previousDay}<br><span style="font-size: 0.6em; color: #FFD700;">▼</span>`;
+            button.textContent = `Start Day ${newDay}`;
+
+            // Show modal
+            modal.classList.add('active');
+
+            // Handle button click
+            const handleClick = () => {
+                modal.classList.remove('active');
+                button.removeEventListener('click', handleClick);
+
+                // Continue to the next scene
+                this.goToScene(nextSceneId);
+                resolve();
+            };
+
+            button.addEventListener('click', handleClick);
+        });
     }
 
     // Make a choice
