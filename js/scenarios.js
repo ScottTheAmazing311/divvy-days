@@ -849,8 +849,8 @@ const scenarios = {
         period: 2,
         periodName: "Late Morning",
         background: "conference_room",
-        character: "pat",
-        characterExpression: "happy",
+        character: null,
+        characterExpression: null,
         text: [
             "You raise your hand. 'I think the enterprise pivot makes sense strategically. Bigger clients mean more stable, predictable revenue. It's a smart business move.'",
             "Blake nods approvingly. 'Exactly. That's the kind of forward-thinking we need.'",
@@ -898,7 +898,7 @@ const scenarios = {
         period: 2,
         periodName: "Late Morning",
         background: "conference_room",
-        character: "pat",
+        character: null,
         characterExpression: "neutral",
         text: [
             "You decide to stay quiet and observe. It's only your second day - probably smart not to jump into major company decisions.",
