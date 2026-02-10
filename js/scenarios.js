@@ -1527,24 +1527,25 @@ const scenarios = {
             "Around 4:30 PM, Chandler rolls up to your desk with his headphones around his neck - which means he's actually choosing to talk to you.",
             "'So.' He leans against the desk partition. 'Some of us are staying late tonight to crush this campaign deadline. Probably gonna order pizza around 6, work until 8 or 9.'",
             "He gives you an appraising look. 'You're welcome to stay if you want. No pressure. But it's when the real work gets done - no meetings, no interruptions.'",
-            "There's something almost like respect in his tone. Chandler doesn't give invites lightly."
+            "There's something almost like respect in his tone. Chandler doesn't give invites lightly.",
+            "Across the office, you see Colby packing up his gym bag, about to head out for his evening workout."
         ],
         choices: [
             {
                 id: "stay_late_team",
-                text: "Yeah, I'm in. Let's get it done",
+                text: "Yeah, I'm in. Let's crush this deadline",
                 next: "day3_end_late_night_crew",
                 effects: {
-                    relationships: { chandler: 12, andre: 7, jesse: 5 },
+                    relationships: { chandler: 12, andre: 7, jesse: 5, colby: -3 },
                     badges: ["late_night_crew", "team_player"]
                 }
             },
             {
-                id: "leave_on_time",
-                text: "I appreciate the invite, but I should head home tonight",
-                next: "day3_end_work_life_balance",
+                id: "leave_with_colby",
+                text: "Actually, I'm gonna hit the gym with Colby",
+                next: "day3_end_gym_with_colby",
                 effects: {
-                    relationships: { chandler: -5 }
+                    relationships: { colby: 15, chandler: -5, andre: -3 }
                 }
             },
             {
@@ -1566,27 +1567,28 @@ const scenarios = {
         character: "chandler",
         characterExpression: "neutral",
         text: [
-            "Chandler shrugs. 'Me, Andre, Jesse, probably Colby for a bit before he heads to the gym. The usual suspects.'",
+            "Chandler shrugs. 'Me, Andre, Jesse - Colby might join for a bit before he heads to the gym. The usual suspects.'",
             "'We'll probably put on music, order too much pizza, and actually get stuff done without everyone else around. It's when the best work happens, honestly.'",
             "He pushes off the desk. 'But like I said - no pressure. Just figured I'd ask since you've been pulling your weight this week.'",
-            "Coming from Chandler, that's basically a compliment."
+            "Coming from Chandler, that's basically a compliment.",
+            "You glance over and see Colby doing some pre-workout stretches by his desk."
         ],
         choices: [
             {
                 id: "stay_after_details",
-                text: "Alright, I'm in. Sounds productive",
+                text: "Alright, I'm in. Let's do this",
                 next: "day3_end_late_night_crew",
                 effects: {
-                    relationships: { chandler: 10, andre: 7 },
+                    relationships: { chandler: 10, andre: 7, colby: -3 },
                     badges: ["late_night_crew"]
                 }
             },
             {
-                id: "decline_after_details",
-                text: "Thanks for the invite, but I'll pass tonight",
-                next: "day3_end_work_life_balance",
+                id: "gym_after_details",
+                text: "I think I'll join Colby at the gym instead",
+                next: "day3_end_gym_with_colby",
                 effects: {
-                    relationships: { chandler: -3 }
+                    relationships: { colby: 15, chandler: -3, andre: -2 }
                 }
             }
         ]
@@ -1620,17 +1622,20 @@ const scenarios = {
         ]
     },
 
-    day3_end_work_life_balance: {
+    day3_end_gym_with_colby: {
         day: 3,
         period: 4,
         periodName: "Late Afternoon",
-        background: "office_desk",
-        character: null,
+        background: "gym",
+        character: "colby",
+        characterExpression: "happy",
         text: [
-            "You pack up your things at 5:30 PM and head out.",
-            "As you leave, you see Chandler, Andre, and Jesse settling in for the long haul. There's pizza being delivered as you walk past reception.",
-            "Part of you wonders if you should have stayed - bonding happens in those late-night work sessions.",
-            "But work-life balance matters too. You can't say yes to everything.",
+            "You pack up with Colby and head to his gym. The place is serious - heavy weights, motivational posters, lots of grunting.",
+            "'BRO! I'm so pumped you came!' Colby is in his element. 'Alright, we're hitting chest and tris today. I'll spot you.'",
+            "The workout is intense. Colby pushes you but also genuinely teaches you proper form. Between sets, he opens up more than he does at the office.",
+            "'Dude, I know I'm not the smartest guy at Divvy. Like, Andre and Jacob are on another level with all the tech stuff. But I bring energy, you know? And I'm learning the business side.'",
+            "'That's why I respect that you came to the gym. Dedication. Work ethic. That's what matters.'",
+            "By the end, you're exhausted but feel accomplished. You've earned Colby's respect - and maybe missed some late-night bonding with the crew.",
             "Tomorrow is Thursday. Almost to the weekend.",
             "Day 3 done."
         ],
@@ -1639,7 +1644,9 @@ const scenarios = {
                 id: "start_day4",
                 text: "Start Day 4",
                 next: "day4_morning_start",
-                effects: {}
+                effects: {
+                    badges: ["gym_rat"]
+                }
             }
         ]
     },
