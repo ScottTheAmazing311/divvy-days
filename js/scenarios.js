@@ -927,23 +927,24 @@ const scenarios = {
         text: [
             "After the intense all-hands meeting, you're back at your desk trying to process everything.",
             "Casper from customer success rolls up to your desk with a friendly smile. 'Hey! You're the new marketing intern, right? I'm Casper. How're you holding up after that meeting?'",
-            "His tone is genuinely supportive and warm. 'That was a lot to take in on day two! Want to grab lunch? Sometimes it helps to process things over food. My treat!'"
+            "His tone is genuinely supportive and warm. 'That was a lot to take in on day two! Want to grab lunch? Sometimes it helps to process things over food. My treat!'",
+            "Just then, Ramona waves from across the room, gesturing towards the door with a questioning look - seems like she's also heading to lunch."
         ],
         choices: [
             {
-                id: "join_tones",
-                text: "Sure, that would be great!",
+                id: "join_casper",
+                text: "I'd love to, Casper! Let's go",
                 next: "day2_afternoon_lunch_casper",
                 effects: {
-                    relationships: { casper: 10 }
+                    relationships: { casper: 10, ramona: -2 }
                 }
             },
             {
-                id: "decline_tones",
-                text: "I should probably work through lunch today",
-                next: "day2_afternoon_work",
+                id: "join_ramona",
+                text: "Actually, I was going to grab lunch with Ramona",
+                next: "day2_afternoon_lunch_ramona",
                 effects: {
-                    relationships: { casper: -3 }
+                    relationships: { ramona: 10, casper: -2 }
                 }
             }
         ]
@@ -983,23 +984,60 @@ const scenarios = {
         ]
     },
 
-    day2_afternoon_work: {
+    day2_afternoon_lunch_ramona: {
         day: 2,
         period: 3,
         periodName: "Afternoon",
-        background: "office_desk",
-        character: null,
+        background: "restaurant",
+        character: "ramona",
+        characterExpression: "happy",
         text: [
-            "You spend lunch at your desk, working on marketing materials and trying to focus.",
-            "It's productive, but you can hear laughter from the group that went out to lunch.",
-            "The all-hands meeting is still churning in your head. You hope you made the right call - whatever that was."
+            "You grab lunch with Ramona at a cozy cafe nearby. She orders a colorful salad and insists you try the avocado toast.",
+            "'So, that all-hands was intense, huh?' she says with genuine empathy. 'Blake's got a lot on his mind. I've been here since the early days - it's always a balancing act between growth and staying true to who we are.'",
+            "'I think whatever direction we go, we'll figure it out. This team is special - everyone really cares.'",
+            "Her warmth and optimism are infectious. You leave lunch feeling more grounded."
+        ],
+        choices: [
+            {
+                id: "thank_ramona",
+                text: "Thanks for the pep talk!",
+                next: "day2_late_afternoon_start",
+                effects: {
+                    relationships: { ramona: 8 }
+                }
+            },
+            {
+                id: "ask_about_early_days",
+                text: "What was Divvy like in the early days?",
+                next: "day2_afternoon_ramona_stories",
+                effects: {
+                    relationships: { ramona: 12 }
+                }
+            }
+        ]
+    },
+
+    day2_afternoon_ramona_stories: {
+        day: 2,
+        period: 3,
+        periodName: "Afternoon",
+        background: "restaurant",
+        character: "ramona",
+        characterExpression: "happy",
+        text: [
+            "Ramona's eyes light up. 'Oh man, the early days were wild! We were like 15 people total, working out of a cramped space.'",
+            "'Andre was already talking at lightning speed even back then. Jacob was obsessing over design details. Jesse was pranking everyone constantly - some things never change!'",
+            "'Blake would bring his dog to the office every day. We all felt like family, you know? As we've grown, we've tried to keep that energy.'",
+            "She smiles warmly. 'That's why I love when new people join and really connect with the team. You're fitting in great, by the way.'"
         ],
         choices: [
             {
                 id: "continue_afternoon",
-                text: "Keep working",
+                text: "Head back to the office",
                 next: "day2_late_afternoon_start",
-                effects: {}
+                effects: {
+                    badges: ["ramona_stories"]
+                }
             }
         ]
     },
