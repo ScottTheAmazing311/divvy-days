@@ -1774,11 +1774,11 @@ const scenarios = {
                 }
             },
             {
-                id: "work_solo_today",
-                text: "I appreciate it, but I want to try this solo first",
-                next: "day4_late_morning_solo",
+                id: "ask_chandler_instead",
+                text: "Actually, I was going to ask Chandler for feedback",
+                next: "day4_late_morning_chandler_collab",
                 effects: {
-                    relationships: { jacob: -3 }
+                    relationships: { chandler: 10, jacob: -3 }
                 }
             },
             {
@@ -1857,25 +1857,33 @@ const scenarios = {
         ]
     },
 
-    day4_late_morning_solo: {
+    day4_late_morning_chandler_collab: {
         day: 4,
         period: 2,
         periodName: "Late Morning",
         background: "office_desk",
-        character: "jacob",
+        character: "chandler",
         characterExpression: "neutral",
         text: [
-            "Jacob nods understandingly. 'Totally get it. Sometimes you need to work through it yourself first. My door's always open if you want feedback later.'",
-            "He walks away, no hard feelings. You continue working solo.",
-            "The copy is coming together, though you wonder if Jacob's product perspective would have made it stronger. You're learning, but maybe you're learning the hard way.",
-            "Still - there's value in figuring things out independently. You'll know for next time."
+            "Jacob raises an eyebrow but nods. 'Fair enough. Chandler's good.' He walks away.",
+            "You roll over to Chandler's desk. He's got his headphones on, deep in focus. You tap his desk.",
+            "He pulls one earbud out. 'What's up?'",
+            "'Want to give me feedback on this webinar campaign copy?'",
+            "Chandler's expression shifts - not quite a smile, but something close. 'Yeah, alright. Let me see.'",
+            "He scans your draft with a critical eye. 'Okay, this hook is solid. But this middle section? Too much feature-listing. Nobody cares about features until you make them care about the problem.'",
+            "'Cut this paragraph. Replace it with a specific example - like, show don't tell. Paint a picture of someone actually struggling with expense reports.'",
+            "His feedback is sharp, direct, and honestly really good. He's competitive, but he's also genuinely skilled.",
+            "'There. That's better.' He nods at your screen. 'You're not bad at this. For an intern.'"
         ],
         choices: [
             {
-                id: "continue_solo_work",
-                text: "Keep working through lunch",
+                id: "thank_chandler",
+                text: "Thanks, that actually helps a lot",
                 next: "day4_afternoon_start",
-                effects: {}
+                effects: {
+                    relationships: { chandler: 5 },
+                    badges: ["earned_chandlers_respect"]
+                }
             }
         ]
     },
@@ -1905,11 +1913,11 @@ const scenarios = {
                 }
             },
             {
-                id: "decline_work_focused",
-                text: "I really need to finish this webinar campaign...",
-                next: "day4_afternoon_decline_andre",
+                id: "quick_check_in",
+                text: "Can we do a quick check-in here? I'm at a good stopping point",
+                next: "day4_afternoon_andre_quick_chat",
                 effects: {
-                    relationships: { andre: -8 }
+                    relationships: { andre: 5 }
                 }
             },
             {
@@ -2081,7 +2089,7 @@ const scenarios = {
         ]
     },
 
-    day4_afternoon_decline_andre: {
+    day4_afternoon_andre_quick_chat: {
         day: 4,
         period: 3,
         periodName: "Afternoon",
@@ -2089,16 +2097,17 @@ const scenarios = {
         character: "andre",
         characterExpression: "neutral",
         text: [
-            "Andre's face falls slightly - you can see he was really hoping you'd say yes.",
-            "'Oh. Yeah-totally-get-it-the-campaign-is-important.' His voice is back to rapid-fire, but there's a hint of hurt underneath.",
-            "'Just-remember-you-can-always-talk-to-me-if-you-need-anything-okay? That's-what-I'm-here-for.'",
-            "He walks away with his energy drink. You wonder if you just made a mistake.",
-            "The webinar campaign work fills your lunch hour, but something feels off. You may have prioritized the wrong thing."
+            "Andre nods and grabs his chair. 'Yeah-of-course-let's-chat-here!'",
+            "He consciously slows down. 'So... how are you actually doing? First week can be intense.'",
+            "'I just want to make sure you feel supported. Is there anything I can do better as your manager?'",
+            "You share honestly - the good, the challenging, the learning curve. Andre listens genuinely.",
+            "'That's-really-helpful-feedback-thank-you.' He stands up. 'And hey - next time, let's actually do lunch. I promise I'll try to not talk fast.'",
+            "It's not as deep as a lunch would have been, but you still feel heard and supported."
         ],
         choices: [
             {
-                id: "continue_afternoon_work",
-                text: "Keep working through the afternoon",
+                id: "continue_afternoon",
+                text: "Get back to work",
                 next: "day4_late_afternoon_start",
                 effects: {}
             }
