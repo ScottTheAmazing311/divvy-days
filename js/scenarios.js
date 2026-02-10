@@ -2448,11 +2448,11 @@ const scenarios = {
                 }
             },
             {
-                id: "solo_lunch_friday",
-                text: "I think I'll just do a quick solo lunch today",
-                next: "day5_afternoon_solo_lunch",
+                id: "help_jesse_urgent",
+                text: "Actually, I promised Jesse I'd help with something urgent",
+                next: "day5_afternoon_help_jesse",
                 effects: {
-                    relationships: { ramona: -5 }
+                    relationships: { ramona: -3, jesse: 10 }
                 }
             }
         ]
@@ -2560,25 +2560,29 @@ const scenarios = {
         ]
     },
 
-    day5_afternoon_solo_lunch: {
+    day5_afternoon_help_jesse: {
         day: 5,
         period: 3,
         periodName: "Afternoon",
         background: "office_desk",
-        character: null,
+        character: "jesse",
+        characterExpression: "happy",
         text: [
-            "You eat lunch alone at your desk one last time this week.",
-            "The office is nearly empty. Most people went out to celebrate Friday.",
-            "You get work done, but it feels hollow. The week is ending not with connection but with isolation.",
-            "Sometimes you wonder if you're prioritizing the wrong things.",
-            "The afternoon stretches ahead."
+            "You find Jesse at his desk looking stressed. 'Oh thank god! I need to finish this ops dashboard before EOD and I'm drowning.'",
+            "You grab lunch together at your desks while working - it's not glamorous, but it's real teamwork.",
+            "'Dude, you're a lifesaver,' Jesse says between bites of his sandwich. 'Most people would've gone to lunch and left me hanging.'",
+            "You help him debug some automation scripts. It's actually kind of fun solving problems together.",
+            "By the time you finish, Jesse fist-bumps you. 'You're solid. For real. I owe you one.'",
+            "You missed the social lunch, but you built real trust with Jesse. Sometimes work bonds are just as valuable."
         ],
         choices: [
             {
-                id: "continue_solo_afternoon",
-                text: "Keep working",
+                id: "continue_afternoon",
+                text: "Get back to your own work",
                 next: "day5_late_afternoon_start",
-                effects: {}
+                effects: {
+                    badges: ["team_player"]
+                }
             }
         ]
     },
