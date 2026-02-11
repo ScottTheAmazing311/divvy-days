@@ -321,7 +321,8 @@ body {
     position: relative;
     grid-row: 3;
     min-height: 350px;
-    padding: 20px 20px 20px 0;
+    padding: 20px 20px 20px 20px !important;
+    margin-left: 0 !important;
 }
 
 .interaction-area::before {
@@ -350,6 +351,7 @@ body {
     min-height: 180px;
     max-height: 200px;
     padding: 20px;
+    margin-left: 0 !important;
 }
 
 .text-box::before {
@@ -392,6 +394,7 @@ body {
 /* ===== CHOICE BUTTONS PERSONA 5 STYLE ===== */
 .choices-container {
     gap: 15px;
+    margin-left: 0 !important;
 }
 
 .btn-choice {
@@ -634,4 +637,21 @@ body {
     );
     pointer-events: none;
     z-index: 1000;
+}
+
+/* Force left alignment for text and choices */
+.interaction-area .text-box,
+.interaction-area .choices-container {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.interaction-area .text-box {
+    align-self: flex-start !important;
+}
+
+.interaction-area .choices-container {
+    align-self: flex-start !important;
 }
