@@ -225,10 +225,17 @@ body {
     margin: 0;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+    z-index: 100;
+    pointer-events: auto;
 }
 
 .btn-choice {
     text-align: left !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 101;
 }
 
 /* ===== TRANSITIONS ===== */

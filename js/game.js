@@ -91,16 +91,6 @@ class GameEngine {
             return;
         }
 
-        // Check for day transition
-        const previousDay = this.state.currentDay;
-        const newDay = scene.day;
-
-        if (newDay > previousDay && previousDay > 0) {
-            // Day transition detected - show modal
-            await this.showDayTransition(previousDay, newDay, sceneId);
-            return; // Don't continue - modal will handle the transition
-        }
-
         // Update state
         this.state.currentSceneId = sceneId;
         this.state.currentDay = scene.day;
@@ -119,50 +109,15 @@ class GameEngine {
         autoSave(this.state);
     }
 
-    // Show day transition modal
-    showDayTransition(previousDay, newDay, nextSceneId) {
-        return new Promise((resolve) => {
-            const modal = document.getElementById('day-transition-modal');
-            const text = document.getElementById('day-transition-text');
-            const button = document.getElementById('day-transition-continue');
-
-            console.log('Day transition modal elements:', { modal, text, button });
-
-            if (!modal || !text || !button) {
-                console.error('Day transition modal elements not found!');
-                // Fallback: just continue to next scene
-                this.goToScene(nextSceneId);
-                resolve();
-                return;
-            }
-
-            // Set text
-            text.innerHTML = `End of Day ${previousDay}<br><span style="font-size: 0.6em; color: #FFD700;">▼</span>`;
-            button.textContent = `Start Day ${newDay}`;
-
-            // Show modal
-            modal.classList.add('active');
-
-            // Handle button click
-            const handleClick = () => {
-                console.log('Day transition button clicked!');
-                modal.classList.remove('active');
-                button.removeEventListener('click', handleClick);
-
-                // Continue to the next scene
-                this.goToScene(nextSceneId);
-                resolve();
-            };
-
-            button.addEventListener('click', handleClick);
-            console.log('Day transition modal shown, button listener added');
-        });
-    }
-
     // Make a choice
     makeChoice(choiceId) {
+        console.log('makeChoice called with:', choiceId);
         const scene = getScenario(this.state.currentSceneId);
-        if (!scene) return;
+        console.log('Current scene:', scene);
+        if (!scene) {
+            console.error('Scene not found!');
+            return;
+        }
 
         const choice = scene.choices.find(c => c.id === choiceId);
         if (!choice) return;
@@ -418,6 +373,13 @@ class GameEngine {
 let gameEngine;
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Force remove day transition modal if it exists (caching issue)
+    const oldModal = document.getElementById('day-transition-modal');
+    if (oldModal) {
+        console.log('Removing cached day transition modal');
+        oldModal.remove();
+    }
+
     gameEngine = new GameEngine();
     window.gameEngine = gameEngine; // Make accessible globally
 
