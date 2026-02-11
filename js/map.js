@@ -135,6 +135,78 @@ const locationEncounters = {
         location: 'break_room',
         character: 'casper',
         scenarioId: 'map_day5_casper_breakroom'
+    },
+
+    // Sterling and Woody - Always in their offices (any day, any period)
+    sterling_office_day1: {
+        day: 1,
+        period: 1,
+        location: 'sterlings_office',
+        character: 'sterling',
+        scenarioId: 'sterlings_office_enter'
+    },
+    sterling_office_day2: {
+        day: 2,
+        period: 1,
+        location: 'sterlings_office',
+        character: 'sterling',
+        scenarioId: 'sterlings_office_enter'
+    },
+    sterling_office_day3: {
+        day: 3,
+        period: 1,
+        location: 'sterlings_office',
+        character: 'sterling',
+        scenarioId: 'sterlings_office_enter'
+    },
+    sterling_office_day4: {
+        day: 4,
+        period: 1,
+        location: 'sterlings_office',
+        character: 'sterling',
+        scenarioId: 'sterlings_office_enter'
+    },
+    sterling_office_day5: {
+        day: 5,
+        period: 1,
+        location: 'sterlings_office',
+        character: 'sterling',
+        scenarioId: 'sterlings_office_enter'
+    },
+    woody_office_day1: {
+        day: 1,
+        period: 1,
+        location: 'woodys_office',
+        character: 'woody',
+        scenarioId: 'woodys_office_enter'
+    },
+    woody_office_day2: {
+        day: 2,
+        period: 1,
+        location: 'woodys_office',
+        character: 'woody',
+        scenarioId: 'woodys_office_enter'
+    },
+    woody_office_day3: {
+        day: 3,
+        period: 1,
+        location: 'woodys_office',
+        character: 'woody',
+        scenarioId: 'woodys_office_enter'
+    },
+    woody_office_day4: {
+        day: 4,
+        period: 1,
+        location: 'woodys_office',
+        character: 'woody',
+        scenarioId: 'woodys_office_enter'
+    },
+    woody_office_day5: {
+        day: 5,
+        period: 1,
+        location: 'woodys_office',
+        character: 'woody',
+        scenarioId: 'woodys_office_enter'
     }
 };
 

@@ -179,6 +179,44 @@ const characters = {
         thresholds: {
             friend: 10  // 10+ is Friend, 0-9 is Acquaintance, below 0 is Enemy
         }
+    },
+    sterling: {
+        id: 'sterling',
+        name: 'Sterling',
+        role: 'Executive (Boss)',
+        color: '#8e44ad',
+        portrait: 'assets/characters/sterling.png',
+        bio: 'Sterling is an executive at Divvy. Very intimidating. Best to stay out of their office.',
+        personality: ['Mysterious', 'Intimidating'],
+        communication: 'Brief and direct',
+        values: ['Results', 'Professionalism'],
+        social: 'Executive leadership - not approachable for interns',
+        likes: ['Efficiency', 'Results'],
+        dislikes: ['Interruptions', 'Interns wandering into their office'],
+        quirk: 'Private office, rarely seen around the office',
+        slackPreference: -20, // Do NOT Slack executives
+        thresholds: {
+            friend: 999  // Cannot befriend
+        }
+    },
+    woody: {
+        id: 'woody',
+        name: 'Woody',
+        role: 'Executive (Boss)',
+        color: '#c0392b',
+        portrait: 'assets/characters/woody.png',
+        bio: 'Woody is an executive at Divvy. Very intimidating. Best to stay out of their office.',
+        personality: ['Mysterious', 'Intimidating'],
+        communication: 'Brief and direct',
+        values: ['Results', 'Professionalism'],
+        social: 'Executive leadership - not approachable for interns',
+        likes: ['Efficiency', 'Results'],
+        dislikes: ['Interruptions', 'Interns wandering into their office'],
+        quirk: 'Private office, rarely seen around the office',
+        slackPreference: -20, // Do NOT Slack executives
+        thresholds: {
+            friend: 999  // Cannot befriend
+        }
     }
 };
 
