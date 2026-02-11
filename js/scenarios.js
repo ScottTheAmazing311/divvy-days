@@ -2764,9 +2764,9 @@ const scenarios = {
         text: [
             "7:00 PM. You're in the secret gaming room with Chandler, Jesse, Andre, Colby, and a couple others.",
             "The room is exactly as described - two big monitors, a PlayStation and Xbox, a Switch, comfortable seating, dim lighting, good vibes.",
-            "Pizza arrives - someone ordered three large pies. Chandler's on aux, playing a carefully curated playlist. Jesse and Andre are mid-game on the PlayStation, trash-talking playfully.",
+            "Pizza arrives - someone ordered three large pies. Chandler's on aux, playing a carefully curated playlist. Jesse and Andre are mid-game playing Smash Bros, trash-talking playfully as they main their characters.",
             "Colby's telling a story about his gym PR this week. 'Hit two-twenty-five on bench, bros! New max!' Everyone congratulates him.",
-            "You join in a round of Mario Kart. Chandler is devastatingly competitive but gracious when Jesse beats him. Andre can't stop talking even while playing.",
+            "You join in the next round of Smash Bros. Chandler is devastatingly competitive but gracious when Jesse beats him. Andre can't stop talking even while playing - somehow managing to commentate his own gameplay.",
             "Around 8:30, the conversation shifts from games to real talk. Dreams, fears, why everyone chose to work at Divvy, what they want from life.",
             "Jesse talks about wanting to create music professionally someday. Colby admits he's not the smartest guy but he works harder than anyone. Chandler opens up about feeling pressure to prove himself as an intern.",
             "Andre - speaking at normal speed for once - says quietly: 'This is my favorite part of the job. Not the revenue operations stuff. This. The people.'",

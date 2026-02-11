@@ -88,7 +88,7 @@ const locationEncounters = {
         character: 'jacob',
         scenarioId: 'map_day2_jacob_conference'
     },
-    day2_break_room: {
+    day2_break_room_scott: {
         day: 2,
         period: 3, // Afternoon
         location: 'break_room',
@@ -120,7 +120,7 @@ const locationEncounters = {
         character: 'jesse',
         scenarioId: 'map_day4_jesse_breakroom'
     },
-    day4_conference_room: {
+    day4_conference_room_pat: {
         day: 4,
         period: 3, // Afternoon
         location: 'conference_room',
@@ -179,11 +179,6 @@ function showOfficeMap(gameState, returnSceneId) {
     // Create room buttons
     for (const locationKey in officeLocations) {
         const location = officeLocations[locationKey];
-
-        // Only show Sterling's and Woody's offices
-        if (locationKey !== 'sterlings_office' && locationKey !== 'woodys_office') {
-            continue; // Skip all other rooms
-        }
 
         // Check if accessible
         if (!isLocationAccessible(locationKey, gameState)) {

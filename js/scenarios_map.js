@@ -303,6 +303,190 @@ const map_scenarios = {
         ]
     },
 
+    // ===== ADDITIONAL MAP ENCOUNTERS =====
+    map_day2_scott_breakroom: {
+        day: 2,
+        period: 3,
+        periodName: "Afternoon",
+        background: "break_room",
+        character: "scott",
+        characterExpression: "happy",
+        text: [
+            "You walk into the break room and find Scott standing on a chair, dramatically gesturing at the coffee machine.",
+            "'And THAT, ladies and gentlemen, is why French press is objectively superior to drip coffee!' He's giving a TED talk to an imaginary audience.",
+            "He notices you and hops down. 'Oh perfect! A real audience! Okay so hear me out - sales enablement is basically just teaching people how to tell better stories, right? And I'm REALLY good at stories.'",
+            "'Want to hear about the time I accidentally sent a meme to a VP instead of the sales deck? Actually made the deal close faster. True story!'"
+        ],
+        choices: [
+            {
+                id: "hear_story",
+                text: "I HAVE to hear this story",
+                next: "map_day2_scott_story",
+                effects: {
+                    relationships: { scott: 8 }
+                }
+            },
+            {
+                id: "laugh_and_leave",
+                text: "Haha maybe later Scott, I'm on a coffee run",
+                next: "map_return",
+                effects: {
+                    relationships: { scott: 3 }
+                }
+            }
+        ]
+    },
+
+    map_day2_scott_story: {
+        day: 2,
+        period: 3,
+        periodName: "Afternoon",
+        background: "break_room",
+        character: "scott",
+        characterExpression: "happy",
+        text: [
+            "Scott pours himself coffee while telling the story with maximum drama.",
+            "'So it's Q3 close, right? BIG enterprise deal. I'm supposed to send the updated pitch deck to the sales team. But I'm also in a group chat making memes about our competitor.'",
+            "'I grab the wrong file. Send the MEME to the VP of Sales. Just... a perfectly crafted roast of our competitor. I immediately panic, send a follow-up like sorry-wrong-file-here's-the-deck.'",
+            "'But plot twist - the VP LOVES it. Screenshots it. Sends it to the whole sales floor. Everyone's dying laughing. The energy is INCREDIBLE.'",
+            "'Next day? Deal closes. VP tells me the team needed that morale boost. Sometimes chaos is the strategy.' He grins. 'That's my sales enablement philosophy.'",
+            "You realize Scott's chaotic energy is actually calculated - he knows exactly what he's doing.",
+            "'Anyway, that's why I do what I do. Make sales not suck, one meme at a time.' He fist-bumps you."
+        ],
+        choices: [
+            {
+                id: "appreciate_scott",
+                text: "That's actually genius. You're good at this",
+                next: "map_return",
+                effects: {
+                    relationships: { scott: 10 },
+                    badges: ["scott_approved"]
+                }
+            },
+            {
+                id: "laugh_continue",
+                text: "That's hilarious. Back to work!",
+                next: "map_return",
+                effects: {
+                    relationships: { scott: 6 }
+                }
+            }
+        ]
+    },
+
+    map_day4_pat_conference: {
+        day: 4,
+        period: 3,
+        periodName: "Afternoon",
+        background: "conference_room",
+        character: "pat",
+        characterExpression: "neutral",
+        text: [
+            "You peek into the conference room. Pat is sitting alone, feet up on the table, scrolling through his phone.",
+            "He looks up. 'Oh great, the intern. Here to judge my work ethic?' His tone is sarcastic but not mean.",
+            "'I'm taking a strategic break. You know what nobody talks about? How exhausting it is to care about business strategy all day.'",
+            "'Everyone's always like let's-pivot-to-enterprise, let's-optimize-conversion, let's-synergize-our-whatever.' He makes air quotes. 'Sometimes I just want to sit in a quiet room and scroll Twitter.'",
+            "There's something oddly honest about his cynicism. He's not actually checked out - he's just tired."
+        ],
+        choices: [
+            {
+                id: "join_break",
+                text: "Mind if I take a strategic break with you?",
+                next: "map_day4_pat_real_talk",
+                effects: {
+                    relationships: { pat: 10 }
+                }
+            },
+            {
+                id: "defend_work",
+                text: "The work matters though, right?",
+                next: "map_day4_pat_debate",
+                effects: {
+                    relationships: { pat: 5 }
+                }
+            },
+            {
+                id: "leave_pat",
+                text: "Fair enough, enjoy your break!",
+                next: "map_return",
+                effects: {
+                    relationships: { pat: 2 }
+                }
+            }
+        ]
+    },
+
+    map_day4_pat_real_talk: {
+        day: 4,
+        period: 3,
+        periodName: "Afternoon",
+        background: "conference_room",
+        character: "pat",
+        characterExpression: "neutral",
+        text: [
+            "You pull up a chair. Pat looks slightly surprised that you actually stayed.",
+            "'Huh. Most people just awkwardly leave when I get like this.' He puts his phone down. 'Okay fine, real talk time.'",
+            "'I actually like working here. Like, genuinely. The people are great. The product's solid. Blake's a good CEO even if he's too optimistic sometimes.'",
+            "'But I refuse to pretend that startup culture isn't exhausting. All the energy, all the passion, all the we're-changing-the-world stuff. Sometimes you just need to sit in a room and admit it's all kind of absurd.'",
+            "'That's my superpower though - perspective. Everyone else gets caught up in the moment. I stay grounded. Sarcastic. Realistic.'",
+            "He smirks. 'Also I'm really good at expense management ops, but that's less fun to talk about.'",
+            "'You're alright, intern. You get it. Most people think cynicism means you don't care. Sometimes it just means you care differently.'"
+        ],
+        choices: [
+            {
+                id: "understand_pat",
+                text: "That actually makes a lot of sense",
+                next: "map_return",
+                effects: {
+                    relationships: { pat: 12 },
+                    badges: ["pat_approved"]
+                }
+            },
+            {
+                id: "appreciate_honesty",
+                text: "Thanks for being real with me",
+                next: "map_return",
+                effects: {
+                    relationships: { pat: 8 }
+                }
+            }
+        ]
+    },
+
+    map_day4_pat_debate: {
+        day: 4,
+        period: 3,
+        periodName: "Afternoon",
+        background: "conference_room",
+        character: "pat",
+        characterExpression: "neutral",
+        text: [
+            "Pat raises an eyebrow. 'Oh, we're doing this? Okay.'",
+            "'Does the work matter? Sure. Is it life-or-death important? No. We're not curing cancer - we're helping companies manage expenses slightly better.'",
+            "'Don't get me wrong, it's good work. But let's not pretend we're saving the world here. We're a B2B SaaS startup in Utah. We're fine.'",
+            "His cynicism is almost refreshing in its honesty.",
+            "'But hey, if the optimism thing works for you, go for it. Just don't burn yourself out pretending everything's amazing all the time.'"
+        ],
+        choices: [
+            {
+                id: "see_point",
+                text: "Fair point. Balance matters",
+                next: "map_return",
+                effects: {
+                    relationships: { pat: 6 }
+                }
+            },
+            {
+                id: "disagree",
+                text: "I think caring is important though",
+                next: "map_return",
+                effects: {
+                    relationships: { pat: 3 }
+                }
+            }
+        ]
+    },
+
     // Return to work after map exploration (fallback - should be updated dynamically)
     map_return: {
         background: "office_desk",
