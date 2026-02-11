@@ -126,6 +126,16 @@ class GameEngine {
             const text = document.getElementById('day-transition-text');
             const button = document.getElementById('day-transition-continue');
 
+            console.log('Day transition modal elements:', { modal, text, button });
+
+            if (!modal || !text || !button) {
+                console.error('Day transition modal elements not found!');
+                // Fallback: just continue to next scene
+                this.goToScene(nextSceneId);
+                resolve();
+                return;
+            }
+
             // Set text
             text.innerHTML = `End of Day ${previousDay}<br><span style="font-size: 0.6em; color: #FFD700;">▼</span>`;
             button.textContent = `Start Day ${newDay}`;
@@ -135,6 +145,7 @@ class GameEngine {
 
             // Handle button click
             const handleClick = () => {
+                console.log('Day transition button clicked!');
                 modal.classList.remove('active');
                 button.removeEventListener('click', handleClick);
 
@@ -144,6 +155,7 @@ class GameEngine {
             };
 
             button.addEventListener('click', handleClick);
+            console.log('Day transition modal shown, button listener added');
         });
     }
 
