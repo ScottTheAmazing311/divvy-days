@@ -64,6 +64,7 @@ body {
     align-items: flex-start;
     gap: 10px;
     padding: 15px 15px 15px 0;
+    margin: 0;
     z-index: 10;
 }
 
@@ -196,11 +197,11 @@ body {
     border: 2px solid #533483;
     border-radius: 8px;
     padding: 15px;
-    margin-left: 15px;
+    margin: 0;
     max-height: 120px;
     overflow-y: auto;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    width: calc(100% - 15px);
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -209,18 +210,20 @@ body {
     line-height: 1.6;
     color: #eaeaea;
     text-align: left;
+    margin: 0;
 }
 
 .text-content p {
     margin-bottom: 10px;
+    margin-left: 0;
 }
 
 .choices-container {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-left: 15px;
-    width: calc(100% - 15px);
+    margin: 0;
+    width: 100%;
     box-sizing: border-box;
 }
 

@@ -321,7 +321,7 @@ body {
     position: relative;
     grid-row: 3;
     min-height: 350px;
-    padding: 20px;
+    padding: 20px 20px 20px 0;
 }
 
 .interaction-area::before {
