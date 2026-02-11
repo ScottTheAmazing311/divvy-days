@@ -1069,12 +1069,13 @@ const scenarios = {
         period: 4,
         periodName: "Late Afternoon",
         background: "office_desk",
-        character: "harper",
-        characterExpression: "neutral",
+        character: "casper",
+        characterExpression: "happy",
         text: [
-            "Harper from HR stops by your desk late in the afternoon with her usual organized demeanor.",
-            "'Hey! Just wanted to check in - how's your first week going so far?' She has a professional but genuine warmth.",
-            "'I know that all-hands was probably a lot to process. My door is always open if you have any questions or concerns. That's what I'm here for.'"
+            "Casper stops by your desk late in the afternoon with his usual friendly demeanor.",
+            "'Hey! How you doing after that all-hands? That was... a lot.' He leans against your desk casually.",
+            "'Blake and Andre really went at it, huh? That's actually what I love about this place though - people care enough to have real debates.'",
+            "'How's your first week treating you? Everyone being cool?'"
         ],
         choices: [
             {
@@ -1082,7 +1083,7 @@ const scenarios = {
                 text: "It's going well, everyone's been really welcoming",
                 next: "day2_end",
                 effects: {
-                    relationships: { harper: 8 }
+                    relationships: { casper: 8 }
                 }
             },
             {
@@ -1090,7 +1091,7 @@ const scenarios = {
                 text: "A little overwhelming, but in a good way",
                 next: "day2_end",
                 effects: {
-                    relationships: { harper: 10 }
+                    relationships: { casper: 10 }
                 }
             },
             {
@@ -1098,7 +1099,7 @@ const scenarios = {
                 text: "Everything's great, thanks for checking!",
                 next: "day2_end",
                 effects: {
-                    relationships: { harper: 5 }
+                    relationships: { casper: 5 }
                 }
             }
         ]
