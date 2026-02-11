@@ -154,6 +154,20 @@ const endings = {
             minCoreExperiences: 0,
             maxFriends: 0
         }
+    },
+    game_over: {
+        id: 'game_over',
+        score: 0,
+        title: 'GAME OVER',
+        subtitle: 'Secret Ending - Curiosity Killed the Intern',
+        text: [
+            "Well... that didn't go as planned.",
+            "Your internship at Divvy has come to an abrupt end.",
+            "Sometimes curiosity doesn't pay off. Maybe next time, stay out of the boss's office?"
+        ],
+        requirements: {
+            // No requirements - this is triggered by special event
+        }
     }
 };
 

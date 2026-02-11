@@ -91,6 +91,13 @@ class GameEngine {
             return;
         }
 
+        // Check if this is a game over
+        if (sceneId === 'game_over_fired') {
+            console.log('Game over scene detected, triggering game over');
+            this.triggerGameOver();
+            return;
+        }
+
         // Update state
         this.state.currentSceneId = sceneId;
         this.state.currentDay = scene.day;
@@ -366,6 +373,45 @@ class GameEngine {
 
         // Show ending screen
         uiRenderer.showEndingScreen(endingResult);
+    }
+
+    // Trigger game over
+    triggerGameOver() {
+        console.log('triggerGameOver called!');
+
+        // Get the game_over ending from endings.js
+        const gameOverEnding = endings.game_over;
+
+        // Count stats like normal endings
+        const friendCount = Object.keys(this.state.relationships).filter(charId => {
+            const score = this.state.relationships[charId].score;
+            return score >= 10;
+        }).length;
+
+        const enemiesCount = Object.keys(this.state.relationships).filter(charId => {
+            const score = this.state.relationships[charId].score;
+            return score < 0;
+        }).length;
+
+        const coreExpCount = Object.values(this.state.coreExperiences).filter(exp => exp === true || (typeof exp === 'string' && exp !== null)).length;
+
+        const gameOverResult = {
+            ending: gameOverEnding,
+            stats: {
+                friendCount,
+                enemiesCount,
+                coreExpCount,
+                badgesEarned: this.state.badges.length
+            }
+        };
+
+        console.log('Showing game over screen with result:', gameOverResult);
+
+        // Unlock ending in meta progression
+        unlockEnding('game_over');
+
+        // Show game over screen
+        uiRenderer.showEndingScreen(gameOverResult);
     }
 }
 

@@ -180,6 +180,11 @@ function showOfficeMap(gameState, returnSceneId) {
     for (const locationKey in officeLocations) {
         const location = officeLocations[locationKey];
 
+        // Only show Sterling's and Woody's offices
+        if (locationKey !== 'sterlings_office' && locationKey !== 'woodys_office') {
+            continue; // Skip all other rooms
+        }
+
         // Check if accessible
         if (!isLocationAccessible(locationKey, gameState)) {
             continue; // Skip locked rooms
@@ -237,6 +242,16 @@ function showOfficeMap(gameState, returnSceneId) {
 function navigateToLocation(location, occupant, gameState, returnSceneId) {
     // Store return point in game state
     gameState.mapReturnScene = returnSceneId;
+
+    // Special handling for Sterling's and Woody's offices - instant game over
+    if (location.id === 'sterlings_office') {
+        window.gameEngine.goToScene('sterlings_office_enter');
+        return;
+    }
+    if (location.id === 'woodys_office') {
+        window.gameEngine.goToScene('woodys_office_enter');
+        return;
+    }
 
     if (occupant && occupant.scenarioId) {
         // There's someone here - go to their scenario

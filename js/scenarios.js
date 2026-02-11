@@ -2860,6 +2860,61 @@ const scenarios = {
             "Time to see how you did..."
         ],
         choices: []
+    },
+
+    // Sterling's Office - Game Over
+    sterlings_office_enter: {
+        day: 1,
+        period: 1,
+        periodName: "Morning",
+        background: "sterlingsoffice",
+        character: null,
+        text: [
+            "Hello there. Step into my office."
+        ],
+        choices: [
+            {
+                id: "accept_fate",
+                text: "I guess LFG",
+                next: "game_over_fired",
+                effects: {}
+            }
+        ]
+    },
+
+    // Woody's Office - Game Over
+    woodys_office_enter: {
+        day: 1,
+        period: 1,
+        periodName: "Morning",
+        background: "woodysoffice",
+        character: null,
+        text: [
+            "Hello there. Step into my office."
+        ],
+        choices: [
+            {
+                id: "accept_fate",
+                text: "I guess LFG",
+                next: "game_over_fired",
+                effects: {}
+            }
+        ]
+    },
+
+    // Game Over - Fired
+    game_over_fired: {
+        day: 1,
+        period: 1,
+        periodName: "Morning",
+        background: "office_desk",
+        character: null,
+        text: [
+            "Well... that didn't go as planned.",
+            "Your internship at Divvy has come to an abrupt end.",
+            "Sometimes curiosity doesn't pay off."
+        ],
+        choices: []
     }
 
 };
@@ -2907,7 +2962,10 @@ function getBackgroundImage(backgroundId) {
         break_room: "assets/backgrounds/lunchroom.png",
         restaurant: "assets/backgrounds/lunchroom.png",
         seven_eleven: "assets/backgrounds/711.png",
-        gaming_room: "assets/backgrounds/gamingroom.png"
+        gaming_room: "assets/backgrounds/gamingroom.png",
+        sterlingsoffice: "assets/backgrounds/sterlingsoffice.png",
+        woodysoffice: "assets/backgrounds/woodysoffice.png",
+        salesfloor: "assets/backgrounds/salesfloor.png"
     };
     return images[backgroundId] || "assets/backgrounds/officedesk.png";
 }
@@ -2921,7 +2979,10 @@ function getBackgroundColor(backgroundId) {
         break_room: "#16a085",
         restaurant: "#e67e22",
         seven_eleven: "#e74c3c",
-        gaming_room: "#9b59b6"
+        gaming_room: "#9b59b6",
+        sterlingsoffice: "#8e44ad",
+        woodysoffice: "#c0392b",
+        salesfloor: "#16a085"
     };
     return colors[backgroundId] || "#34495e";
 }
